@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Job Portal</title>
+        <link href="login.css" rel="stylesheet" type="text/css" />
+        
+    </head>
+
+    <body>
+        <div class="signin">
+            <form id="login">
+                <h2 style="color: black">Login</h2>
+                <input type="text" id="email" name="email"placeholder="Email">
+                <br><br>
+                <input type="password" id="password" name="pass"placeholder="Password">
+                <br><br><br>
+                <a href=""><input type="button" value="Log in"></a>
+                <br><br>
+                 <div id="container">
+                    <a href="forgotpass.html" style=" margin-right: 0px; font-size: 13px; 
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Forgot Password</a>
+                 </div><br><br>
+                Don't have an account? <a href="/register.html">&nbsp;Register</a>
+            </form>
+        </div>
+        <script>
+			const form = document.querySelector('#login')
+			form.addEventListener('submit', login)
+
+			async function login(event) {
+				event.preventDefault()
+				const username = document.querySelector('#email').value
+				const password = document.querySelector('#password').value
+
+				const result = await fetch('/api/login', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						username,
+						password
+					})
+				}).then((res) => res.json())
+
+				if (result.status === 'ok') {
+					// everythign went fine
+					console.log('Got the token: ', result.data)
+					localStorage.setItem('token', result.data)
+					alert('Success')
+				} else {
+					alert(result.error)
+				}
+			}
+		</script>
+    </body>
+</html>
