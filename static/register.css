@@ -19,7 +19,7 @@ form{
 input{
     width: 230px;
     text-align: center;
-    /* background: transparent; */
+    background: transparent;
     border: none;
     border-bottom: 1px solid rgb(0, 0, 0);
     font-family: 'Play',sans-serif;

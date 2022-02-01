@@ -1,5 +1,6 @@
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("https://products.ls.graphics/mesh-gradients/images/99.-Roman.jpg");
   }
   .signin {
     background: rgb(255, 255, 255);
@@ -18,7 +19,7 @@ body {
   input {
     width: 230px;
     text-align: center;
-    /* background: transparent; */
+    background: transparent;
     border: none;
     border-bottom: 1px solid rgb(0, 0, 0);
     font-family: 'Play',sans-serif;
