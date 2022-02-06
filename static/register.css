@@ -1,5 +1,6 @@
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #EFEFEF;
 }
 .wrapper{
     background: rgb(255, 255, 255);
@@ -17,7 +18,7 @@ form{
     text-align: center;
 }
 input{
-    width: 230px;
+    width: 250px;
     text-align: center;
     background: transparent;
     border: none;
@@ -39,20 +40,20 @@ button[type=submit]{
     padding: 10px 0;
     border-radius: 15px;
     cursor: pointer;
-    transition: 0.7s;
+    transition: 0.5s;
     position: relative;
     overflow: hidden;
 }
 button[type=submit]:hover{
     color: #fff;
-    background-color: #80D1FA;
+    background-color: #1572A1;
 }
 a{
-    transition: 0.7s;
+    transition: 0.5s;
     color: #2C3539;
 }
 a:hover{
-    color: #80D1FA;
+    color: #1572A1;
 }
 ::placeholder{
     color:rgb(0, 0, 0);
