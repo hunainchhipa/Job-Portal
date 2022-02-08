@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.openMenu{
+     display: flex;
+     
+     height: 60px;
+     width: 100%;
+     justify-content: end;
+     position:sticky;
+     background-image: linear-gradient(to right, rgba(3, 3, 34, 0.822) , rgba(23, 173, 23, 0.671));
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.openMenu li {
+     color: black;
+      list-style: none;
+
+}
+
+
+.openMenu .icon{
+    position:absolute;
+    margin-top: 12px;
+    margin-right: 19px;
+    color:white;
+    cursor: pointer;
+}
+
+
