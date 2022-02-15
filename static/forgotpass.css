@@ -1,69 +1,69 @@
-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #EFEFEF;
-}
-a{
-    color: rgb(0, 0, 0);
-    text-decoration: blink;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-form{
-    width: 300px;
-    text-align: center;
-}
-.forget{
-    background: rgb(255, 255, 255);
-    padding: 50px;
-    width: 300px;
-    margin: auto;
-    margin-top: 190px;
-    margin-left: 180x;
-    box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
-    border-radius: 10px;
-}
-h2{
-    margin-top: 20px;
-    margin-left: 10px;
-}
-input[type=text]{
-    width: 250px;
-    text-align: center;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgb(0, 0, 0);
-    font-family: 'Play',sans-serif;
-    font-size: 16px;
-    font-weight: 200px;
-    padding: 10px 0;
-    transition: border 0.5s;
-    outline: none;
-}
-input[type=button]{
-    border: 1px solid #000000;
-    width: 190px;
-    background: white;
-    color: #000;
-    font-size: 16px;
-    line-height: 25px;
-    padding: 10px 0;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.5s;
-    position: relative;
-    overflow: hidden;
-}
-input[type=button]:hover{
-    color: #fff;
-    background-color: #1572A1;
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #efefef;
 }
 a {
-    transition: 0.5s;
-    color: #2C3539;
-  }
-  a:hover {
-    color: #1572A1;
-  }
-  ::placeholder {
-    color: rgb(0, 0, 0);
-    opacity: 0.8;
-  }
+  color: rgb(0, 0, 0);
+  text-decoration: blink;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+form {
+  width: 300px;
+  text-align: center;
+}
+.forget {
+  background: rgb(255, 255, 255);
+  padding: 50px;
+  width: 300px;
+  margin: auto;
+  margin-top: 190px;
+  margin-left: 180x;
+  box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+}
+h2 {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+input[type="text"] {
+  width: 250px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  font-family: "Play", sans-serif;
+  font-size: 16px;
+  font-weight: 200px;
+  padding: 10px 0;
+  transition: border 0.5s;
+  outline: none;
+}
+input[type="button"] {
+  border: 1px solid #000000;
+  width: 190px;
+  background: white;
+  color: #000;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px 0;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.5s;
+  position: relative;
+  overflow: hidden;
+}
+input[type="button"]:hover {
+  color: #fff;
+  background-color: #1572a1;
+}
+a {
+  transition: 0.5s;
+  color: #2c3539;
+}
+a:hover {
+  color: #1572a1;
+}
+::placeholder {
+  color: rgb(0, 0, 0);
+  opacity: 0.8;
+}
