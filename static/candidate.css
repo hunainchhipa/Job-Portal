@@ -166,26 +166,32 @@ body {
   font-size: 25px;
 }
 
-.content .card .use-info p {
+.content .card .candidate-info p {
   margin: 10px;
   font-size: 20px;
 }
-.content .card .use-info .sub-header {
+.content .card .candidate-info .sub-header {
+  display: flex;
   margin: 30px 15px;
 }
-.content .card .use-info .sub-header .option-content {
-  margin-left: 10%;
+.content .card .candidate-info .sub-header .option-content {
   width: 70%;
   height: 30px;
+  max-width: 700px;
   border-color: gainsboro;
   border-width: 3px;
 }
-.content .card .use-info .sub-header .textBox {
+.content .card .candidate-info .sub-header .sub-header-content {
+  width: 25%;
+}
+.content .card .candidate-info .sub-header .textBox {
   width: 70%;
   height: 30px;
+  max-width: 700px;
   border-color: gainsboro;
   border-width: 2px;
 }
+
 input[type="reset"] {
   border: 1px #ff8f00;
   width: 120px;
@@ -196,7 +202,7 @@ input[type="reset"] {
   padding: 10px 0;
   border-radius: 5px;
   margin-bottom: 10px;
-  margin-left: 66%;
+  margin-left: 67%;
   cursor: pointer;
   transition: 0.2s;
   position: relative;
