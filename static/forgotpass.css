@@ -35,7 +35,7 @@ input[type="text"] {
   font-size: 16px;
   font-weight: 200px;
   padding: 10px 0;
-  transition: border 0.5s;
+  transition: border 0.3s;
   outline: none;
 }
 input[type="button"] {
@@ -48,7 +48,7 @@ input[type="button"] {
   padding: 10px 0;
   border-radius: 15px;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.3s;
   position: relative;
   overflow: hidden;
 }
@@ -57,7 +57,7 @@ input[type="button"]:hover {
   background-color: #1572a1;
 }
 a {
-  transition: 0.5s;
+  transition: 0.3s;
   color: #2c3539;
 }
 a:hover {

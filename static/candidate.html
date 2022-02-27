@@ -6,42 +6,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="candidate.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
     <title>Job Portal</title>
 </head>
 
 <body>
     <div class="nav">
         <h1>Job Portal</h1>
-        <i class="fa fa-gear icon" style="font-size:30px"></i>
-    </div>
-
-    <div class="side-menu candidate">
-        <div class="profile-section">
-            <div class="profile-image">
-                <img src="images/user-profile pic.png" alt="Profile Pic" id="img-profile-picture" class="img-profile-picture">
-                <input type="file" id="file" class="file">
-                <label for="file" class="uploadBtn" id="uploadBtn"><i class="fa fa-upload"></i></label>
-                
-            </div>
-            <div class="user-info">
-                <p>hunain chhipa</p>
-                <span>Candidate</span>
+        <div class="setting-icon-dropdown">
+            <i onclick="myFunction()" class="fa fa-gear icon"></i>
+            <div class="dropdown-content" id="myDropdown">
+                <a href="#settings"><i class="fa fa-gear fa-spin"></i> Settings</a>
+                <a href="#logout"><i class="fa fa-sign-out"></i> Logout</a>
             </div>
         </div>
-        <div class="menu-section">
-            <div class="menu-item active">
-                <i class="fa fa-user"></i>
-                <p class="m-0">My Profile</p><span></span>
+    </div>
+
+    <div class="wrapper">
+        <div class="side-menu candidate">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="images/user-profile pic.png" alt="Profile Pic" id="img-profile-picture"
+                        class="img-profile-picture">
+                    <input type="file" id="file" class="file">
+                    <label for="file" class="uploadBtn" id="uploadBtn">
+                        <i class="fa fa-upload"></i>
+                    </label>
+                </div>
+                <div class="user-info">
+                    <p>Hunain Chhipa</p>
+                    <span>Candidate</span>
+                </div>
             </div>
-            <div class="menu-item ">
-                <i class="fa fa-search"></i>
-                <p class="m-0">Job Search</p><span></span>
+            <div class="menu-section">
+                <div class="menu-item active">
+                    <i class="fa fa-user"></i>
+                    <p class="m-0">My Profile</p><span></span>
+                </div>
+                <div class="menu-item ">
+                    <i class="fa fa-search"></i>
+                    <p class="m-0">Job Search</p><span></span>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="card">
+                <div class="heading">
+                    <h3>Hunain Chhipa</h3> <hr style="margin-top: 24px;">  <br>
+                </div>
+                <div class="use-info">
+                    <p>Profile Infromation</p><br>
+                    <div class="sub-header">Career Stage:
+                        <select class="option-content" style="margin-left: 105px;">
+                            <option value="" disabled selected>Select Career Stage</option>
+                            <option value="">Student</option>
+                            <option value="">Job Starter</option>
+                            <option value="">Professional Experienced</option>
+                        </select>
+                    </div>
+                    <div class="sub-header">Highest Graduation:
+                        <select class="option-content" style="margin-left: 60px;"> 
+                            <option value="" disabled selected>Select Highest Graduation</option>
+                            <option value="">Student</option>
+                            <option value="">Job Starter</option>
+                            <option value="">Professional Experienced</option>
+                        </select>
+                    </div>
+                    <div class="sub-header">Type of Hiring:
+                        <select class="option-content" style="margin-left: 99px;">
+                            <option class="ko" value="" disabled selected>Select the Type of Hiring</option>
+                            <option value="">Full Time</option>
+                            <option value="">Part Time</option>
+                            <option value="">Internship</option>
+                            <option value="">Freelance</option>
+                        </select>
+                    </div>
+                    <div class="sub-header">Address:
+                        <input type="text" class="textBox" placeholder=" Address" style="margin-left: 141px;">
+                    </div>
+                    <div class="sub-header">Phone:
+                        <input type="number" class="textBox" placeholder=" Phone" style="margin-left: 154px;">
+                    </div>
+                </div>
+                <input type="reset" value="Cancel">
+                <input type="submit" value="Save">
+            </div>
+            <div class="card">
+                Hunain chhipa
             </div>
         </div>
     </div>
 
     <script>
+        //Uploading profile picture
         //Declaring HTML elements
         const imgDiv = document.querySelector('.profile-image')
         const img = document.querySelector('#img-profile-picture')
@@ -49,29 +106,54 @@
         const uploadBtn = document.querySelector('#uploadBtn')
 
         //if user hover on profile picture
-        imgDiv.addEventListener('mouseenter', function() {
+        imgDiv.addEventListener('mouseenter', function () {
             console.log(uploadBtn)
             uploadBtn.style.display = "block"
         });
 
         //if user hover out from profile picture
-        imgDiv.addEventListener('mouseleave', function() {
+        imgDiv.addEventListener('mouseleave', function () {
             uploadBtn.style.display = "none"
         });
 
         //When we choose an image to upload
-        file.addEventListener('change', function() {
+        file.addEventListener('change', function () {
             const choosedFile = this.files[0];
 
             if (choosedFile) {
                 const reader = new FileReader();
-                reader.addEventListener('load', function() {
+                reader.addEventListener('load', function () {
                     img.setAttribute('src', reader.result)
                 });
 
                 reader.readAsDataURL(choosedFile);
             }
         })
+
+
+
+        //setting Icon Dropdown
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.icon')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+
     </script>
 </body>
 

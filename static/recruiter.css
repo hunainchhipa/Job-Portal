@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #efefef;
+}
+.nav {
+  display: flex;
+  height: 60px;
+  width: 100%;
+  justify-content: end;
+  position: sticky;
+  background-image: linear-gradient(to right, #0f2c67, #3fa796);
+}
+.nav .dropdown .icon {
+  position: relative;
+  margin-top: 15px;
+  margin-right: 20px;
+  font-size: 30px;
+  color: whitesmoke;
+  cursor: pointer;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  padding: 6px 0;
+  margin-top: 3px;
+  border-radius: 6px;
+  background-color: #f1f1f1;
+  min-width: 120px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  right: 15px;
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.dropdown a:hover {
+  background-color: lightsteelblue;
+}
+.show {
+  display: block;
+}
+
+
+
+.nav h1 {
+  margin-right: 87%;
+  position: absolute;
+  margin-top: 10px;
+  color: lightgray;
+  cursor: pointer;
+  /* height: 40px;
+  width: 100px; */
+}
+
+.side-menu {
+  box-shadow: 0 0 22px 6px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  border-radius: 6px;
+  max-width: 275px;
+  width: 100%;
+  margin: 20px 24px 20px 24px;
+  position: relative;
+  height: 350px;
+}
+.side-menu .profile-section {
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+.side-menu .profile-section .profile-image {
+  overflow: hidden;
+  position: relative;
+  border-radius: 6px;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #fff;
+}
+.side-menu .profile-section .profile-image .img-profile-picture {
+  width: 100px;
+  height: 100px;
+}
+.side-menu .profile-section .user-info {
+  margin: 8px;
+  text-align: center;
+  color: #49505b;
+}
+.side-menu .profile-section .user-info p {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.side-menu .profile-section .user-info span {
+  padding: 4px 8px;
+  border: 1px solid #49505b;
+  border-radius: 6px;
+}
+.side-menu .menu-section .menu-item {
+  padding: 18px 12px 18px 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+}
+.side-menu .menu-section .menu-item.active {
+  border-left: 5px solid #248291;
+}
+.side-menu .menu-section .menu-item.active i,
+.side-menu .menu-section .menu-item.active p,
+.side-menu .menu-section .menu-item:hover i,
+.side-menu .menu-section .menu-item:hover p {
+  color: #248291;
+}
+.side-menu .menu-section .menu-item i {
+  font-size: 22px;
+}
+.side-menu .menu-section {
+  font-size: 17px;
+}
+
+.file {
+  display: none;
+}
+.uploadBtn {
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: whitesmoke;
+  line-height: 100px;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+
+
+
+
+
+

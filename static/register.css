@@ -27,7 +27,7 @@ input{
     font-size: 16px;
     font-weight: 200px;
     padding: 10px 0;
-    transition: border 0.5s;
+    transition: border 0.3s;
     outline: none;
 }
 button[type=submit]{
@@ -40,7 +40,7 @@ button[type=submit]{
     padding: 10px 0;
     border-radius: 15px;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.3s;
     position: relative;
     overflow: hidden;
 }
@@ -49,7 +49,7 @@ button[type=submit]:hover{
     background-color: #1572A1;
 }
 a{
-    transition: 0.5s;
+    transition: 0.3s;
     color: #2C3539;
 }
 a:hover{

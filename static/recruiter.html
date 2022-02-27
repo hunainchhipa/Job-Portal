@@ -4,10 +4,103 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="recruiter.css">
     <title>Job Portal</title>
 </head>
 <body>
-    <h1>Hello</h1>
+    <div class="nav">
+        <h1>Job Portal</h1>
+        <div class="dropdown">
+            <i onclick="myFunction()" class="fa fa-gear icon"></i>
+            <div class="dropdown-content" id="myDropdown">
+                <a href="#logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="side-menu candidate">
+        <div class="profile-section">
+            <div class="profile-image">
+                <img src="images/user-profile pic.png" alt="Profile Pic" id="img-profile-picture" class="img-profile-picture">
+                <input type="file" id="file" class="file">
+                <label for="file" class="uploadBtn" id="uploadBtn">
+                    <i class="fa fa-upload"></i>
+                </label>
+            </div>
+            <div class="user-info">
+                <p>hunain chhipa</p>
+                <span>Recruiter</span>
+            </div>
+        </div>
+        <div class="menu-section">
+            <div class="menu-item active">
+                <i class="fa-solid fa-list-check"></i>
+                <p class="m-0">Job Management</p><span></span>
+            </div>
+            <div class="menu-item ">
+                <i class="fa-solid fa-list-check"></i>
+                <p class="m-0">Candidate Management</p><span></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //Declaring HTML elements
+        const imgDiv = document.querySelector('.profile-image')
+        const img = document.querySelector('#img-profile-picture')
+        const file = document.querySelector('#file')
+        const uploadBtn = document.querySelector('#uploadBtn')
+
+        //if user hover on profile picture
+        imgDiv.addEventListener('mouseenter', function () {
+            console.log(uploadBtn)
+            uploadBtn.style.display = "block"
+        });
+
+        //if user hover out from profile picture
+        imgDiv.addEventListener('mouseleave', function () {
+            uploadBtn.style.display = "none"
+        });
+
+        //When we choose an image to upload
+        file.addEventListener('change', function () {
+            const choosedFile = this.files[0];
+
+            if (choosedFile) {
+                const reader = new FileReader();
+                reader.addEventListener('load', function () {
+                    img.setAttribute('src', reader.result)
+                });
+
+                reader.readAsDataURL(choosedFile);
+            }
+        })
+
+
+
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.icon')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </body>
+
 </html>
