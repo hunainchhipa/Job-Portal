@@ -24,7 +24,7 @@
           <br /><br />
           <input type="text" autocomplete="off" name="lastname" placeholder="Last Name" required/>
           <br /><br />
-          <input type="email" name="email"placeholder="Email" required/>
+          <input type="email" autocomplete="on" name="email" autocomplete="off" placeholder="Email" required/>
           <br /><br />
           <input type="password" name="password" id="password" placeholder="Password" required/>
           <span id="message"style="color:red;"> </span>
@@ -32,7 +32,7 @@
           <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password" required/>
           <br /><br />
           <span id="messages"style="color:red;"> </span>
-          <input type="text" id="name" name="companyname" style="display: none;" placeholder="Company Name"/> 
+          <input type="text" autocomplete="off" id="name" name="companyname" style="display: none;" placeholder="Company Name"/> 
           <br /><br />
           <span id="companyname"style="color:red;"> </span>
           <button name="submit" type="submit">Register</button>
@@ -45,87 +45,87 @@
     <script>
       //select Register as candidate or rucruiter
       document.querySelector("#selection").addEventListener("change", function (e) {
-      const selectedValue = e.target.value;
-      const textel = document.querySelector(".candidate");
-
-      // toggle single field
-      // recruiter selected
-      if (selectedValue === "Recruiter") {
-        document.querySelector("#name").style.display = "inline-block";
-        textel.textContent = "Register as Recruiter";
+        const selectedValue = e.target.value;
+        const textel = document.querySelector(".candidate");
 
         // toggle single field
-        // candidate selected
-      } else {
-        document.querySelector("#name").style.display = "none";
-        textel.textContent = "Register as Candidate";
+        // recruiter selected
+        if (selectedValue === "Recruiter") {
+          document.querySelector("#name").style.display = "inline-block";
+          textel.textContent = "Register as Recruiter";
+
+          // toggle single field
+          // candidate selected
+        } else {
+          document.querySelector("#name").style.display = "none";
+          textel.textContent = "Register as Candidate";
+        }
+      });
+
+
+
+      //Check for Password and Confirmpassword are same or not
+      const form = document.querySelector(".form-candidate-recruiter");
+      form.addEventListener("submit", registerUser);
+
+      async function registerUser(event) {
+        event.preventDefault();
+
+        var pass = document.querySelector("#password").value;
+        var confirmpass = document.querySelector("#confirmpassword").value;
+        var companyname = document.querySelector("#name").value;
+        var usertype = document.querySelector("#selection").value
+
+        if (pass != confirmpass) {
+          document.querySelector("#message").innerHTML = "*Password doesn't match"
+          return false;
+        }
+        else {
+          document.querySelector("#message").innerHTML = ""
+        }
+
+        if (usertype === 'Recruiter' && !companyname) {
+          document.querySelector("#companyname").innerHTML = "*Company Name is Required"
+          return false;
+        }
+        else {
+          document.querySelector("#companyname").innerHTML = ""
+        }
+
+
+        let payload = {}
+        for (let i = 0; i < form.elements.length; i++) {
+          let el = form.elements[i];
+          payload[el.name] = el.value
+          console.log(el.name, el.value);
+        }
+
+        console.log(payload, JSON.stringify(payload))
+        const result = await fetch('/api/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        }).then((res) => {
+          return res.json()
+        })
+
+        
+        //Going to dashboard after registration
+        if (usertype === 'Recruiter' && result.status === 'ok') {
+          //everything fine
+          alert('You are registered as Recruiter')
+          window.location.href = "recruiter.html";
+        }
+        else if (usertype === 'Candidate' && result.status === 'ok') {
+          alert('You are registered as Candidate')
+          window.location.href = "candidate.html";
+        }
+        else {
+          alert(result.error)
+        }
       }
-    });
-
-
-
-
-
-    const form = document.querySelector(".form-candidate-recruiter");
-    form.addEventListener("submit", registerUser);
-
-    async function registerUser(event) {
-      event.preventDefault();
-
-      var pass = document.querySelector("#password").value;
-      var confirmpass = document.querySelector("#confirmpassword").value;
-      var companyname = document.querySelector("#name").value;
-      var usertype = document.querySelector("#selection").value
-
-      if (pass != confirmpass) {
-        document.querySelector("#message").innerHTML = "*Password doesn't match"
-        return false;
-      }
-      else {
-        document.querySelector("#message").innerHTML = ""
-      }
-
-      if(usertype === 'Recruiter' && !companyname) {
-        document.querySelector("#companyname").innerHTML = "*Company Name is Required"
-        return false;
-      }
-      else{
-        document.querySelector("#companyname").innerHTML = ""
-      }
-
-
-      let payload = {}
-      for (let i = 0; i < form.elements.length; i++) {
-        let el = form.elements[i];
-        payload[el.name] = el.value
-        console.log(el.name, el.value);
-      }
-
-      console.log(payload, JSON.stringify(payload))
-      const result = await fetch('/api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      }).then((res) => {
-        return res.json()
-      })
-
-      //Going to dashboard after registration
-      if (usertype === 'Recruiter' && result.status === 'ok') {
-        //everything fine
-        alert('You are registered as Recruiter')
-        window.location.href = "recruiter.html";
-      }
-      else if(usertype === 'Candidate' && result.status === 'ok') {
-        alert('You are registered as Candidate')
-        window.location.href = "candidate.html";
-      }
-      else {
-        alert(result.error)
-      }
-    }
     </script>
   </body>
 </html>

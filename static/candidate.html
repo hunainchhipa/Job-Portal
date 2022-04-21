@@ -16,8 +16,8 @@
         <div class="setting-icon-dropdown">
             <i onclick="myFunction()" class="fa fa-gear icon"></i>
             <div class="dropdown-content" id="myDropdown">
-                <a href="#settings"><i class="fa fa-gear fa-spin"></i> Settings</a>
-                <a href="#logout"><i class="fa fa-sign-out"></i> Logout</a>
+                <a href="#settings">Settings</a>
+                <a href="#logout">Logout</a>
             </div>
         </div>
     </div>
@@ -52,13 +52,13 @@
         <div class="content">
             <div class="card">
                 <div class="heading">
-                    <h3>Hunain Chhipa</h3> <hr style="margin-top: 24px;">  <br>
+                    <h3 class="user-name">Hunain Chhipa</h3> <hr style="margin-top: 2%;">  <br>
                 </div>
-                <div class="candidate-info">
+                <div class="fill-information">
                     <p>Profile Infromation</p><br>
                     <div class="sub-header">
                         <div class="sub-header-content">
-                            Career Stage:
+                            Career Stage
                         </div>
                         <select class="option-content">
                             <option value="" disabled selected>Select Career Stage</option>
@@ -69,18 +69,22 @@
                     </div>
                     <div class="sub-header">
                         <div class="sub-header-content">
-                            Highest Graduation:
+                            Highest Graduation
                         </div>
                         <select class="option-content"> 
                             <option value="" disabled selected>Select Highest Graduation</option>
-                            <option value="">Student</option>
-                            <option value="">Job Starter</option>
-                            <option value="">Professional Experienced</option>
+                            <option value="">Post Graduate</option>
+                            <option value="">Under Graduate</option>
+                            <option value="">Secondary Education</option>
+                            <option value="">Higher Secondary Education</option>
+                            <option value="">Masters</option>
+                            <option value="">Bachelors</option>
+                            <option value="">PhD</option>
                         </select>
                     </div>
                     <div class="sub-header">
                         <div class="sub-header-content">
-                            Type of Hiring:
+                            Type of Hiring
                         </div>
                         <select class="option-content">
                             <option value="" disabled selected>Select the Type of Hiring</option>
@@ -92,27 +96,137 @@
                     </div>
                     <div class="sub-header">
                         <div class="sub-header-content">
-                            Address:
+                            Address
                         </div>
                         <input type="text" class="textBox" placeholder=" Address">
                     </div>
                     <div class="sub-header">
                         <div class="sub-header-content">
-                            Phone:
+                            Phone
                         </div>
                         <input type="number" class="textBox" placeholder=" Phone">
                     </div>
                 </div>
-                <input type="reset" value="Cancel">
-                <input type="submit" value="Save">
+                <div class="save-button">
+                    <input type="reset" value="Cancel">
+                    <input type="submit" value="Save">
+                </div>
             </div>
 
-            
             <div class="card">
-                Hunain chhipa
+                <div class="heading">
+                    <h3>Skills</h3>
+                    <hr style="margin-top: 2%;"> <br>
+                </div>
+                <div class="fill-information">
+                    <div class="sub-header">
+                        <div class="sub-header-content">
+                            <i>Here, you list your professional skills</i>
+                        </div>
+                        <input type="text" class="textBox" placeholder=" Enter ability">
+                    </div>
+                </div>
+                <div class="save-button">
+                    <input type="submit" value="Save">
+                </div>
             </div>
+
+            <div class="card">
+                <div class="heading">
+                    <h3>Experience</h3>
+                    <hr style="margin-top: 2%;"> <br>
+                </div>
+                <div class="fill-information">
+                    <p>Add your work Experience</p> <br>
+                    <div class="sub-header">
+                        <div class="sub-header-content">
+                            Title
+                        </div>
+                        <input type="text" class="textBox" placeholder=" Enter your position">
+                    </div>
+                    <div class="sub-header">
+                        <div class="sub-header-content">
+                            Description
+                        </div>
+                        <input type="text" class="textBox" placeholder=" Enter Description">
+                    </div>
+                </div>
+                <div class="save-button">
+                    <input type="submit" value="Save">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="heading">
+                    <h3>Education</h3>
+                    <hr style="margin-top: 2%;"> <br>
+                </div>
+                <div class="fill-information">
+                    <p>Add your Education</p> <br>
+                    <div class="sub-header">
+                        <div class="sub-header-content">
+                            University
+                        </div>
+                        <input type="text" class="textBox" placeholder=" Enter you University">
+                    </div>
+                    <div class="sub-header">
+                        <div class="sub-header-content">
+                            Description
+                        </div>
+                        <input type="text" class="textBox" placeholder=" Enter Description">
+                    </div>
+                </div>
+                <div class="save-button">
+                    <input type="submit" value="Save">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="heading">
+                    <h3>Languages</h3> <hr style="margin-top: 2%;">  <br>
+                </div>
+                <div class="fill-information">
+                    <p>Add your Language</p><br>
+                    <div class="sub-header">
+                        <div class="sub-header-content">
+                            Add Language
+                        </div>
+                        <input type="text" class="textBox" placeholder=" Add Language">
+                    </div>
+                </div>
+                <div class="save-button">
+                    <input type="submit" value="Save">
+                </div>
+            </div>
+
         </div>
     </div>
+    
+    <!--Footer-->
+    <section class="footer">
+        <ul class="list">
+            <li>
+                <a href="#home">Home</a>
+            </li>
+            <li>
+                <a href="#services">Services</a>
+            </li>
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#terms">Terms</a>
+            </li>
+            <li>
+                <a href="#privacypolicy">Privacy Policy</a>
+            </li>
+        </ul> <hr style="margin-top: 15px; border-top: #000000;">
+        <p class="copyright">
+            © 2021-2022 | Job Portal
+        </p>
+    </section>
+
+
 
     <script>
         //Uploading profile picture
@@ -170,7 +284,7 @@
             }
         }
 
-
+        
     </script>
 </body>
 

@@ -14,6 +14,14 @@ body {
   justify-content: space-between;
   background-image: linear-gradient(to right, #0f2c67, #3fa796);
 }
+.nav h1 {
+  position: relative;
+  margin-top: 10px;
+  color: lightgray;
+  font-family: fantasy;
+  cursor: pointer;
+  margin-left: 2%;
+}
 .nav .setting-icon-dropdown .icon {
   position: relative;
   margin-top: 15px;
@@ -27,7 +35,7 @@ body {
   position: absolute;
   padding: 6px 0;
   margin-top: 3px;
-  border-radius: 6px;
+  border-radius: 5px;
   background-color: #f1f1f1;
   width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -35,26 +43,22 @@ body {
   z-index: 1;
 }
 .nav .setting-icon-dropdown .dropdown-content a {
-  color: black;
-  padding: 8px 8px;
+  color: rgb(0, 0, 0);
+  padding: 7px 7px;
+  font-size: 14px;
+  font-weight: 300;
   text-align: center;
   text-decoration: none;
   display: block;
 }
 .nav .setting-icon-dropdown a:hover {
-  background-color: lightsteelblue;
+  background-color: rgb(218, 224, 233);
+  color: #248291;
 }
 .nav .setting-icon-dropdown .show {
   display: block;
 }
 
-.nav h1 {
-  position: relative;
-  margin-top: 10px;
-  color: lightgray;
-  cursor: pointer;
-  margin-left: 2%;
-}
 
 .wrapper {
   display: flex;
@@ -157,42 +161,45 @@ body {
   box-shadow: 0 0 22px 6px rgb(0 0 0 / 5%);
   background: #fff;
   border-radius: 6px;
-  /* height: 300px; */
   margin-bottom: 20px;
-  padding: 10px;
+  padding: 20px;
 }
 .content .card .heading h3 {
   margin: 10px;
   font-size: 25px;
 }
-
-.content .card .candidate-info p {
+.content .card .heading .user-name {
+  font-size: 20px;
+  font-weight: 400;
+}
+.content .card .fill-information p {
   margin: 10px;
   font-size: 20px;
 }
-.content .card .candidate-info .sub-header {
+.content .card .fill-information .sub-header {
   display: flex;
   margin: 30px 15px;
 }
-.content .card .candidate-info .sub-header .option-content {
+.content .card .fill-information .sub-header .option-content {
   width: 70%;
   height: 30px;
-  max-width: 700px;
   border-color: gainsboro;
   border-width: 3px;
 }
-.content .card .candidate-info .sub-header .sub-header-content {
-  width: 25%;
+.content .card .fill-information .sub-header .sub-header-content{
+  width: 30%;
 }
-.content .card .candidate-info .sub-header .textBox {
+.content .card .fill-information .sub-header .textBox {
   width: 70%;
   height: 30px;
-  max-width: 700px;
   border-color: gainsboro;
   border-width: 2px;
 }
+.content .card .fill-information .sub-header .sub-header-content i {
+  font-size: 15px;
+}
 
-input[type="reset"] {
+.content .card input[type="reset"] {
   border: 1px #ff8f00;
   width: 120px;
   background: #ff8f00;
@@ -202,16 +209,16 @@ input[type="reset"] {
   padding: 10px 0;
   border-radius: 5px;
   margin-bottom: 10px;
-  margin-left: 67%;
   cursor: pointer;
   transition: 0.2s;
   position: relative;
   overflow: hidden;
+  margin-right: 7px;
 }
-input[type="reset"]:hover {
+.content .card input[type="reset"]:hover {
   background-color: #a0610f;
 }
-input[type="submit"] {
+.content .card input[type="submit"]{
   border: 1px #ff8f00;
   width: 120px;
   background: #ff8f00;
@@ -226,6 +233,42 @@ input[type="submit"] {
   position: relative;
   overflow: hidden;
 }
-input[type="submit"]:hover {
+.content .card .save-button {
+  text-align: right;
+  margin-right: 15px;
+}
+.content .card input[type="submit"]:hover {
   background-color: #248291;
+}
+
+.footer {
+  padding: 40px 0;
+  box-shadow: 0 0 22px 6px rgb(0 0 0 / 5%);
+  background: #fff;
+  border-radius: 4px;
+}
+.footer ul {
+  margin-top: 15px;
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+}
+.footer ul a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.footer ul a:hover {
+  opacity: 1;
+}
+.footer ul li {
+  display: inline-block;
+  padding: 0 15px;
+}
+.footer .copyright {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: rgb(58, 58, 58);
 }

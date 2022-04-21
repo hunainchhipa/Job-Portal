@@ -20,6 +20,7 @@ const app = express()
 app.use('/', express.static(path.join(__dirname,'static')))
 app.use(bodyParser.json())
 
+// Login API 
 app.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email }).lean()
@@ -46,6 +47,7 @@ app.post("/api/login", async (req, res) => {
   res.json({ status: 'error', error: 'Invalid email/password' });
 });
 
+// Register API 
 app.post('/api/register', async (req, res) => {
     const { usertype,firstname, lastname, email, password: plainTextPassword, companyname } = req.body
     

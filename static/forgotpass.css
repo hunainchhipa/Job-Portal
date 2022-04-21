@@ -58,6 +58,7 @@ input[type="button"]:hover {
 }
 a {
   transition: 0.3s;
+  text-decoration: underline;
   color: #2c3539;
 }
 a:hover {

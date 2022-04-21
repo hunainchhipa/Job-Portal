@@ -11,7 +11,7 @@
         <div class="signin">
             <form id="login">
                 <h2 style="color: black">Login</h2>
-                <input type="text" id="email" name="email"placeholder="Email" required>
+                <input type="text" id="email" autocomplete="on" name="email"placeholder="Email" required>
                 <br><br>
                 <input type="password" id="password" name="pass"placeholder="Password" required>
                 <br><br><br>
@@ -45,11 +45,11 @@
 						password
 					})
 				}).then((res) => res.json())
-
+				console.log (result)
 				if (result.status === 'ok') {
 					// everythign went fine
 					console.log('Got the token: ', result.data)
-					localStorage.setItem('token', result.data)
+					localStorage.setItem('token', result.data.token)
 
 					if(result.data.user.usertype === "Candidate") {
 						window.location.href = "/candidate.html"
