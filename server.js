@@ -1,15 +1,12 @@
-const { Console } = require('console')
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
-const res = require('express/lib/response')
 const mongoose = require('mongoose')
 const User = require('./model/user')
 const bcrypt = require('bcryptjs')
-const { response } = require('express')
 const jwt = require('jsonwebtoken')
-
-const JWT_SECRET = 'jkshfhdfksfhdgfhsdbfjk&^%%#dajkshhafha*@lwuejbscnbshfekjahf'
+const { JWT_SECRET } = require('./config')
+const { verifyToken } = require('./middlewares')
 
 mongoose.connect('mongodb://localhost:27017/jobportal', {
 	useNewUrlParser: true,
@@ -80,6 +77,20 @@ app.post('/api/register', async (req, res) => {
     }
 
     res.json({status: 'ok' })
+})
+
+app.get('/api/user-profile', verifyToken, (req, res) => {
+    User.findById(req.tokenData.id, (err, user) => {
+        if(err) {
+            return res.status(500).send({
+                message: "Error in getting user"
+            })
+        }
+
+        return res.status(200).send({
+            data: user
+        })
+    })   
 })
 
 app.listen(3000, () => {

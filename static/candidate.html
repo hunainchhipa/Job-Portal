@@ -6,7 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="candidate.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
+    <script src="./common.js"></script>
+
+    <script>
+       const credentials = window.localStorage.getItem("token");
+
+        window.addEventListener("load", (e) => {
+            setAuthHeader("Bearer " + credentials)
+            getUserProfile().then((res) => {
+
+                const elUserSideName = document.querySelector(".profile-section .user-info .name")
+
+                if(elUserSideName) {
+                    elUserSideName.innerHTML = res.data.firstname + " " + res.data.lastname
+                }
+
+                const elUserName = document.querySelector(".content .card .heading .user-name")
+
+                if(elUserName) {
+                    elUserName.innerHTML = res.data.firstname + " " + res.data.lastname
+                }
+
+                const elUserType = document.querySelector(".profile-section .user-info .type")
+
+                if(elUserType) {
+                    elUserType.innerHTML = res.data.usertype
+                }
+            })
+        })
+    </script>
     <title>Job Portal</title>
 </head>
 
@@ -34,8 +64,8 @@
                     </label>
                 </div>
                 <div class="user-info">
-                    <p>Hunain Chhipa</p>
-                    <span>Candidate</span>
+                    <p class="name"></p>
+                    <span class="type"></span>
                 </div>
             </div>
             <div class="menu-section">

@@ -113,14 +113,8 @@
 
         
         //Going to dashboard after registration
-        if (usertype === 'Recruiter' && result.status === 'ok') {
-          //everything fine
-          alert('You are registered as Recruiter')
-          window.location.href = "recruiter.html";
-        }
-        else if (usertype === 'Candidate' && result.status === 'ok') {
-          alert('You are registered as Candidate')
-          window.location.href = "candidate.html";
+        if ((usertype === 'Recruiter' || usertype === 'Candidate') && result.status === 'ok') {
+          window.location.href = "login.html";
         }
         else {
           alert(result.error)
