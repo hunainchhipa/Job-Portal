@@ -8,100 +8,141 @@
     <link rel="stylesheet" href="/jobdetails.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script src="/common.js"></script>
-
     <script>
-       const credentials = window.localStorage.getItem("token");
+        window.addEventListener("load", () => {
+            console.log(window.location)
+            const id = window.location.pathname.split("/")
 
-        window.addEventListener("load", (e) => {
-            setAuthHeader("Bearer " + credentials)
-            getUserProfile().then((res) => {
+            axios(`/api/job/${id[id.length - 1]}`).then((res) => {
+                const data = res.data
 
-                const elUserSideName = document.querySelector(".profile-section .user-info .name")
-
-                if(elUserSideName) {
-                    elUserSideName.innerHTML = res.data.firstname + " " + res.data.lastname
-                }
-
-                const elUserName = document.querySelector(".content .card .heading .user-name")
-
-                if(elUserName) {
-                    elUserName.innerHTML = res.data.firstname + " " + res.data.lastname
-                }
-
-                const elUserType = document.querySelector(".profile-section .user-info .type")
-
-                if(elUserType) {
-                    elUserType.innerHTML = res.data.usertype
-                }
+                console.log(data)
+                document.querySelector(".content .job-title").innerHTML = data.title
+                document.querySelector(".content .job-location").innerHTML = data.location
+                document.querySelector(".content .job-salary").innerHTML = data.salary
+                document.querySelector(".content .job-companyname").innerHTML = data.companyname
+                document.querySelector(".content .job-companyURL").innerHTML = data.companyURL
+                document.querySelector(".content .job-companyURL").setAttribute("href", data.companyURL)
+                document.querySelector(".content .job-details").innerHTML = data.jobDetails
             })
         })
+
+
     </script>
+
     <title>Job Portal</title>
 </head>
 
 <body>
     <%- include('header'); -%>
 
-    <div class="wrapper">
-        <div class="side-menu candidate">
-            <div class="profile-section">
-                <div class="profile-image">
-                    <img src="images/user-profile pic.png" alt="Profile Pic" id="img-profile-picture"
-                        class="img-profile-picture">
-                    <input type="file" id="file" class="file">
-                    <label for="file" class="uploadBtn" id="uploadBtn">
-                        <i class="fa fa-upload"></i>
-                    </label>
+        <div class="wrapper">
+            <div class="side-menu candidate">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="/images/user-profile pic.png" alt="Profile Pic" id="img-profile-picture"
+                            class="img-profile-picture">
+                        <input type="file" id="file" class="file">
+                        <label for="file" class="uploadBtn" id="uploadBtn">
+                            <i class="fa fa-upload"></i>
+                        </label>
+                    </div>
+                    <div class="user-info">
+                        <p class="name"></p>
+                        <span class="type"></span>
+                    </div>
                 </div>
-                <div class="user-info">
-                    <p class="name"></p>
-                    <span class="type"></span>
+                <div class="menu-section">
+                    <div class="menu-item active">
+                        <i class="fa fa-user"></i>
+                        <a href="/candidate" style="text-decoration: none; color: black;">My Profile</a><span></span>
+                    </div>
+                    <div class="menu-item ">
+                        <i class="fa fa-search"></i>
+                        <a href="/jobs" style="text-decoration: none; color: black;">Jobs</a><span></span>
+
+                    </div>
                 </div>
             </div>
-            <div class="menu-section">
-                <div class="menu-item active">
-                    <i class="fa fa-user"></i>
-                    <a href="candidate" style="text-decoration: none; color: black;">My Profile</a><span></span>
+
+            <div class="content">
+                <div class="card">
+                    <div class="heading">
+                        <h3 style="display:flex; justify-content: space-between;">
+                            <span class="job-title"> </span>
+                            <small style="color: #888">
+                                <span class="job-location"> </span>
+                            </small>
+                        </h3>
+                        <hr style="margin-top: 2%;"> <br>
+                    </div>
                 </div>
-                <div class="menu-item ">
-                    <i class="fa fa-search"></i>
-                    <a href="jobsearch" style="text-decoration: none; color: black;">Job Search</a><span></span>
-                    
+                <div class="card">
+
+
+                    <div class="sub-header">
+                        <div class="sub-header-content">
+                            Company name
+                        </div>
+                        <div class="job-companyname">
+
+                        </div>
+                    </div>
+                    <div class="sub-header">
+                        <div class="sub-header-content">
+                            Company URL
+                        </div>
+                        <a href="#" class="job-companyURL">
+
+                        </a>
+                    </div>
+                    <div class="sub-header">
+                        <div class="sub-header-content">
+                            Salary Range
+                        </div>
+                        <div class="job-salary">
+
+                        </div>
+                    </div>
+                    <div class="sub-header">
+                        <div class="sub-header-content">
+                            Job Details
+                        </div>
+                        <div class="job-details">
+
+                        </div>
+                    </div>
+
+                    <div class="save-button">
+                        <input type="submit" onclick="applyJob()" value="Apply for Job">
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="content">
-            <div class="card">
-                <div class="heading">
-                    <h3>Job Details</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-            </div>
         </div>
-    </div>    
 
-     <!--Footer-->
-     <section class="footer">
-        <ul class="list">
-            <li>
-                <a href="#home">Home</a>
-            </li>
-            <li>
-                <a href="#services">Services</a>
-            </li>
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#terms">Terms</a>
-            </li>
-            <li>
-                <a href="#privacypolicy">Privacy Policy</a>
-            </li>
-        </ul> <hr style="margin-top: 15px; border-top: #000000;">
-        <p class="copyright">
-            © 2021-2022 | Job Portal
-        </p>
-    </section>
+        <script>
+            const applyJob = async () => {
+                const id = window.location.pathname.split("/")
+
+                const payload = {
+                    jobId: id[id.length - 1]
+                }
+
+                const result = await axios.post('/api/apply', payload).then((res) => {
+                    swal("Job applied!", "You successfully applied to the job!", "success");
+                }).catch((e) => {
+                    swal("Error", "An unexpected error occured", "error")
+                })
+            }
+
+        </script>
+
+        <%- include('footer'); -%>
+
+</body>
+
+</html>

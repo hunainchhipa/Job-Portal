@@ -158,6 +158,62 @@
     margin: 10px;
     font-size: 25px;
   }
+  .content .card .heading .user-name {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .content .card  {
+    margin: 10px;
+    font-size: 20px;
+  }
+  .content .card .sub-header {
+    display: flex;
+    margin: 30px 15px;
+  }
+  .content .card .sub-header .option-content {
+    width: 70%;
+    height: 30px;
+    border-color: gainsboro;
+    border-width: 3px;
+  }
+  .content .card .sub-header .sub-header-content{
+    min-width: 30%;
+  }
+  .content .card .sub-header .textBox {
+    width: 70%;
+    height: 30px;
+    border-color: gainsboro;
+    border-width: 2px;
+  }
+
+  .content .job-details {
+    white-space: pre-wrap;
+  }
+
+  .content .card input[type="submit"]{
+    border: 1px #ff8f00;
+    width: 120px;
+    background: #ff8f00;
+    color: #fff;
+    font-size: 14px;
+    line-height: 10px;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .content .card .save-button {
+    text-align: right;
+    margin-right: 15px;
+    margin-top: 2%;
+  }
+  .content .card input[type="submit"]:hover {
+    background-color: #248291;
+  }
+
   
   .footer {
     padding: 40px 0;

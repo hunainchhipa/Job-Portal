@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const User = require("./model/user");
 const Job = require("./model/job");
+const Application = require("./model/application");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("./config");
@@ -48,8 +49,13 @@ app.get('/postjob', (req, res)=>{
     res.render('postjob');
 });
 
-app.get('/jobs', (req, res)=>{
-    res.render('jobsearch');
+app.get('/jobs', async (req, res)=>{
+    res.render('jobs');
+});
+
+
+app.get('/job/:id', async (req, res)=>{
+    res.render('jobdetails');
 });
 
 // Login API
@@ -113,7 +119,6 @@ app.post("/api/register", async (req, res) => {
       password,
       companyname,
     });
-    console.log("User created successfully:", response);
   } catch (error) {
     if (error.code === 11000) {
       //duplicate key
@@ -125,6 +130,7 @@ app.post("/api/register", async (req, res) => {
   res.json({ status: "ok" });
 });
 
+// Get logged in user profile
 app.get("/api/user-profile", verifyToken, (req, res) => {
   User.findById(req.tokenData.id, (err, user) => {
     if (err) {
@@ -139,6 +145,7 @@ app.get("/api/user-profile", verifyToken, (req, res) => {
   });
 });
 
+// Get all jobs
 app.get("/api/jobs", verifyToken, async (req, res) => {
     Job.find({}, (err, jobs) => {
         if (err) {
@@ -153,27 +160,107 @@ app.get("/api/jobs", verifyToken, async (req, res) => {
       });
 });
 
+// Get jobs posted by logged in recruiter
+app.get("/api/recruiter-jobs", verifyToken, async (req, res) => {
+  const query = {
+    recruiterId: req.tokenData.id
+  }
+
+  Job.find(query, (err, jobs) => {
+      if (err) {
+        return res.status(500).send({
+          message: "Error in getting jobs",
+        });
+      }
+  
+      return res.status(200).send({
+        data: jobs,
+      });
+    });
+});
+
+
+// Get jobs posted by logged in recruiter
+app.get("/api/recruiter-jobs", verifyToken, async (req, res) => {
+  const query = {
+    recruiterId: req.tokenData.id
+  }
+
+  Job.find(query, (err, jobs) => {
+      if (err) {
+        return res.status(500).send({
+          message: "Error in getting jobs",
+        });
+      }
+  
+      return res.status(200).send({
+        data: jobs,
+      });
+    });
+});
+
+
+// Get jobs applied by logged in candidate
+app.get("/api/candidate-jobs", verifyToken, async (req, res) => {
+  const query = {
+    recruiterId: req.tokenData.id
+  }
+
+  Job.find(query, (err, jobs) => {
+      if (err) {
+        return res.status(500).send({
+          message: "Error in getting jobs",
+        });
+      }
+  
+      return res.status(200).send({
+        data: jobs,
+      });
+    });
+});
+
+// Get job detail by ID
+app.get("/api/job/:id", verifyToken, async (req, res) => {
+    Job.findById(req.params.id, (err, job) => {
+        if (err) {
+          return res.status(500).send({
+            message: "Error in getting job",
+          });
+        }
+    
+        return res.status(200).send(job);
+      });
+});
+
+// Post job
 app.post("/api/postjob", verifyToken, async (req, res) => {
-  const {
-    title,
-    location,
-    salary,
-    jobDetails,
-    companyname,
-    companyURL,
-  } = req.body;
+  const jobObject = {
+    ...req.body,
+    recruiterId: req.tokenData.id
+  }
 
   try {
-    const response = await Job.create({
-      title,
-      location,
-      salary,
-      jobDetails,
-      companyname,
-      companyURL,
-    });
+    const response = await Job.create(jobObject);
     return res.status(200).send({
       message: "Job created successfully",
+      data: response,
+    });
+  } catch (error) {
+    throw error;
+  }
+});
+
+// Candidate apply job
+app.post("/api/apply", verifyToken, async (req, res) => {
+  const applicationObj = {
+    ...req.body,
+    candidateId: req.tokenData.id
+  }
+
+  try {
+    const response = await Application.create(applicationObj);
+    return res.status(200).send({
+      message: "Job applied successfully",
       data: response,
     });
   } catch (error) {

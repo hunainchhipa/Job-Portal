@@ -9,31 +9,6 @@
     <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
     <script src="/common.js"></script>
 
-    <script>
-       const credentials = window.localStorage.getItem("token");
-
-        window.addEventListener("load", (e) => {
-            setAuthHeader("Bearer " + credentials)
-            getUserProfile().then((res) => {
-                const elUserSideName = document.querySelector(".profile-section .user-info .name")
-
-                if(elUserSideName) {
-                    elUserSideName.innerHTML = res.data.firstname + " " + res.data.lastname
-                }
-
-                const elUserType = document.querySelector(".profile-section .user-info .type")
-
-                if(elUserType) {
-                    elUserType.innerHTML = res.data.usertype
-                }
-            })
-
-            getJobs().then((res) => {
-                console.log(res)
-            })
-        })
-    </script>
-
     <title>Job Portal</title>
 </head>
 <body>
@@ -68,7 +43,7 @@
                 <div class="heading">
                     <h3 class="post-job" style="font-weight: lighter;">Job Management</h3>
                 </div>
-                <a href="postjob" style="text-decoration: none;">Post a Job</a>
+                <a href="/postjob" style="text-decoration: none; font-size: 25px;">Post a Job</a>
             </div>
 
             <div class="card">
@@ -80,29 +55,7 @@
         </div>
     </div>
 
-    <!--Footer-->
-    <section class="footer">
-        <ul class="list">
-            <li>
-                <a href="#home">Home</a>
-            </li>
-            <li>
-                <a href="#services">Services</a>
-            </li>
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#terms">Terms</a>
-            </li>
-            <li>
-                <a href="#privacypolicy">Privacy Policy</a>
-            </li>
-        </ul> <hr style="margin-top: 15px; border-top: #000000;">
-        <p class="copyright">
-            © 2021-2022 | Job Portal
-        </p>
-    </section>
+    <%- include('footer'); -%>
 
     <script>
         //Declaring HTML elements

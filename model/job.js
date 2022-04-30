@@ -23,6 +23,10 @@ const JobSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    recruiterId: {
+      type: String,
+      required: true
+    }
   },
   { collection: "jobs" }
 );

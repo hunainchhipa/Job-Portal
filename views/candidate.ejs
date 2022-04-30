@@ -10,33 +10,6 @@
     <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
     <script src="/common.js"></script>
 
-    <script>
-       const credentials = window.localStorage.getItem("token");
-
-        window.addEventListener("load", (e) => {
-            setAuthHeader("Bearer " + credentials)
-            getUserProfile().then((res) => {
-
-                const elUserSideName = document.querySelector(".profile-section .user-info .name")
-
-                if(elUserSideName) {
-                    elUserSideName.innerHTML = res.data.firstname + " " + res.data.lastname
-                }
-
-                const elUserName = document.querySelector(".content .card .heading .user-name")
-
-                if(elUserName) {
-                    elUserName.innerHTML = res.data.firstname + " " + res.data.lastname
-                }
-
-                const elUserType = document.querySelector(".profile-section .user-info .type")
-
-                if(elUserType) {
-                    elUserType.innerHTML = res.data.usertype
-                }
-            })
-        })
-    </script>
     <title>Job Portal</title>
 </head>
 
@@ -66,7 +39,7 @@
                 </div>
                 <div class="menu-item ">
                     <i class="fa fa-search"></i>
-                    <a href="jobsearch" style="text-decoration: none; color: black;">Job Search</a><span></span>
+                    <a href="/jobs" style="text-decoration: none; color: black;">Jobs</a><span></span>
                     
                 </div>
             </div>
@@ -121,7 +94,7 @@
                         <div class="sub-header-content">
                             Address
                         </div>
-                        <input type="text" class="textBox" placeholder=" Address">
+                        <textarea style="min-height: 80px;" type="text" class="textBox" placeholder=" Address"></textarea>
                     </div>
                     <div class="sub-header">
                         <div class="sub-header-content">
@@ -154,17 +127,12 @@
                 </div>
                 <div class="fill-information">
                     <p>Add your work Experience</p> <br>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Title
-                        </div>
-                        <input type="text" class="textBox" placeholder=" Enter your position">
-                    </div>
+                    
                     <div class="sub-header">
                         <div class="sub-header-content">
                             Description
                         </div>
-                        <input type="text" class="textBox" placeholder=" Enter Description">
+                        <textarea style="min-height: 100px;" class="textBox" placeholder=" Enter Description"></textarea>
                     </div>
                 </div>
             </div>
@@ -176,67 +144,28 @@
                 </div>
                 <div class="fill-information">
                     <p>Add your Education</p> <br>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            University
-                        </div>
-                        <input type="text" class="textBox" placeholder=" Enter you University">
-                    </div>
+                   
                     <div class="sub-header">
                         <div class="sub-header-content">
                             Description
                         </div>
-                        <input type="text" class="textBox" placeholder=" Enter Description">
+                        <textarea style="min-height: 100px;" class="textBox" placeholder=" Enter Description"></textarea>
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
-                <div class="heading">
-                    <h3>Languages</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Add your Language</p><br>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Add Language
-                        </div>
-                        <input type="text" class="textBox" placeholder=" Add Language">
-                    </div>
-                </div>
                 <div class="save-button">
-                    <input type="submit" value="Save">
+                    <input type="submit" value="Save All Details">
                 </div>
             </div>
     
+    
+            
         </div>
     </div>
     
-    <!--Footer-->
-    <section class="footer">
-        <ul class="list">
-            <li>
-                <a href="#home">Home</a>
-            </li>
-            <li>
-                <a href="#services">Services</a>
-            </li>
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#terms">Terms</a>
-            </li>
-            <li>
-                <a href="#privacypolicy">Privacy Policy</a>
-            </li>
-        </ul> <hr style="margin-top: 15px; border-top: #000000;">
-        <p class="copyright">
-            © 2021-2022 | Job Portal
-        </p>
-    </section>
-
+    <%- include('footer'); -%>
 
 
     <script>

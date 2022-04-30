@@ -201,7 +201,8 @@ body {
 
 .content .card input[type="submit"]{
   border: 1px #ff8f00;
-  width: 120px;
+  width: 150px;
+  height: 50px;
   background: #ff8f00;
   color: #fff;
   font-size: 14px;

@@ -10,27 +10,6 @@
     <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
     <script src="/common.js"></script>
 
-    <script>
-        const credentials = window.localStorage.getItem("token");
-
-        window.addEventListener("load", (e) => {
-            setAuthHeader("Bearer " + credentials)
-            getUserProfile().then((res) => {
-
-                const elUserSideName = document.querySelector(".profile-section .user-info .name")
-
-                if (elUserSideName) {
-                    elUserSideName.innerHTML = res.data.firstname + " " + res.data.lastname
-                }
-
-                const elUserType = document.querySelector(".profile-section .user-info .type")
-
-                if (elUserType) {
-                    elUserType.innerHTML = res.data.usertype
-                }
-            })
-        })
-    </script>
     <title>Job Portal</title>
 </head>
 
@@ -56,7 +35,7 @@
             <div class="menu-section">
                 <div class="menu-item">
                     <i class="fa-solid fa-list-check"></i>
-                    <a href="recruiter" style="text-decoration: none; color: black;">Job
+                    <a href="/recruiter" style="text-decoration: none; color: black;">Job
                         Management</a><span></span>
                 </div>
             </div>
@@ -80,7 +59,7 @@
                             <div class="sub-header-content">
                                 Location
                             </div>
-                            <textarea class="textBox" name="jobDetails" placeholder=" Enter Job Location"
+                            <textarea class="textBox" name="location" placeholder=" Enter Job Location"
                                 style="min-height: 70px;"></textarea>
                         </div>
                         <div class="sub-header">
@@ -117,31 +96,7 @@
         </div>
     </div>
 
-    <!--Footer-->
-    <section class="footer">
-        <ul class="list">
-            <li>
-                <a href="#home">Home</a>
-            </li>
-            <li>
-                <a href="#services">Services</a>
-            </li>
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#terms">Terms</a>
-            </li>
-            <li>
-                <a href="#privacypolicy">Privacy Policy</a>
-            </li>
-        </ul>
-        <hr style="margin-top: 15px; border-top: #000000;">
-        <p class="copyright">
-            © 2021-2022 | Job Portal
-        </p>
-    </section>
-
+    <%- include('footer'); -%>
 
 
     <script>
@@ -204,10 +159,8 @@
             for (let i = 0; i < form.elements.length; i++) {
                 let el = form.elements[i];
                 payload[el.name] = el.value
-                console.log(el.name, el.value);
             }
 
-            console.log(payload, 'payload')
             const result = await axios.post('/api/postjob', payload).then((res) => {
                 return res.json()
             })
