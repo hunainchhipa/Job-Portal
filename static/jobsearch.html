@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="candidate.css">
+    <link rel="stylesheet" href="jobsearch.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
     <script src="./common.js"></script>
@@ -21,12 +21,6 @@
 
                 if(elUserSideName) {
                     elUserSideName.innerHTML = res.data.firstname + " " + res.data.lastname
-                }
-
-                const elUserName = document.querySelector(".content .card .heading .user-name")
-
-                if(elUserName) {
-                    elUserName.innerHTML = res.data.firstname + " " + res.data.lastname
                 }
 
                 const elUserType = document.querySelector(".profile-section .user-info .type")
@@ -69,156 +63,88 @@
                 </div>
             </div>
             <div class="menu-section">
-                <div class="menu-item active">
+                <div class="menu-item">
                     <i class="fa fa-user"></i>
-                    <p class="m-0" style="color: #248291;">My Profile</p><span></span>
+                    <a href="candidate.html" style="text-decoration: none; color: black;">My Profile</a><span></span>
                 </div>
-                <div class="menu-item ">
+                <div class="menu-item active">
                     <i class="fa fa-search"></i>
-                    <a href="jobsearch.html" style="text-decoration: none; color: black;">Job Search</a><span></span>
-                    
+                    <p class="m-0" style="color: #248291;">Job Search</p><span></span>
                 </div>
             </div>
         </div>
         <div class="content">
             <div class="card">
                 <div class="heading">
-                    <h3 class="user-name"></h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Profile Infromation</p><br>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Career Stage
-                        </div>
-                        <select class="option-content">
-                            <option value="" disabled selected>Select Career Stage</option>
-                            <option value="">Student</option>
-                            <option value="">Job Starter</option>
-                            <option value="">Professional Experienced</option>
-                        </select>
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Highest Graduation
-                        </div>
-                        <select class="option-content">
-                            <option value="" disabled selected>Select Highest Graduation</option>
-                            <option value="">Post Graduate</option>
-                            <option value="">Under Graduate</option>
-                            <option value="">Secondary Education</option>
-                            <option value="">Higher Secondary Education</option>
-                            <option value="">Masters</option>
-                            <option value="">Bachelors</option>
-                            <option value="">PhD</option>
-                        </select>
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Type of Hiring
-                        </div>
-                        <select class="option-content">
-                            <option value="" disabled selected>Select the Type of Hiring</option>
-                            <option value="">Full Time</option>
-                            <option value="">Part Time</option>
-                            <option value="">Internship</option>
-                            <option value="">Freelance</option>
-                        </select>
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Address
-                        </div>
-                        <input type="text" class="textBox" placeholder=" Address">
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Phone
-                        </div>
-                        <input type="number" class="textBox" placeholder=" Phone">
-                    </div>
+                    <h3 class="post-job">Job Search</h3>
                 </div>
             </div>
-    
+
             <div class="card">
                 <div class="heading">
-                    <h3>Skills</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            <i>Here, you list your professional skills</i>
+                    <div class="title">Job 1</div>
+                    <div class="jobs">
+                        <div class="description">Use the set of the most well researched diagnostic surveys stemming from I/O
+                            psychology powerhouses such as Harvard University and University of Michigan. Choose between: Culture,
+                            Team Effectiveness, Employee Wellbeing, e-NPS and Talent Management surveys.
                         </div>
-                        <input type="text" class="textBox" placeholder=" Enter ability">
+                        <a href="jobdetails.html">View Details</a>
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <div class="heading">
-                    <h3>Experience</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Add your work Experience</p> <br>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Title
+                    <div class="title">Job 2</div>
+                    <div class="jobs">
+                        <div class="description">Use the set of the most well researched diagnostic surveys stemming from I/O
+                            psychology powerhouses such as Harvard University and University of Michigan. Choose between: Culture,
+                            Team Effectiveness, Employee Wellbeing, e-NPS and Talent Management surveys.
                         </div>
-                        <input type="text" class="textBox" placeholder=" Enter your position">
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Description
-                        </div>
-                        <input type="text" class="textBox" placeholder=" Enter Description">
+                        <a href="jobdetails.html">View Details</a>
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <div class="heading">
-                    <h3>Education</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Add your Education</p> <br>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            University
+                    <div class="title">Job 3</div>
+                    <div class="jobs">
+                        <div class="description">Use the set of the most well researched diagnostic surveys stemming from I/O
+                            psychology powerhouses such as Harvard University and University of Michigan. Choose between: Culture,
+                            Team Effectiveness, Employee Wellbeing, e-NPS and Talent Management surveys.
                         </div>
-                        <input type="text" class="textBox" placeholder=" Enter you University">
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Description
-                        </div>
-                        <input type="text" class="textBox" placeholder=" Enter Description">
+                        <a href="jobdetails.html">View Details</a>
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <div class="heading">
-                    <h3>Languages</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Add your Language</p><br>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Add Language
+                    <div class="title">Job 4</div>
+                    <div class="jobs">
+                        <div class="description">Use the set of the most well researched diagnostic surveys stemming from I/O
+                            psychology powerhouses such as Harvard University and University of Michigan. Choose between: Culture,
+                            Team Effectiveness, Employee Wellbeing, e-NPS and Talent Management surveys.
                         </div>
-                        <input type="text" class="textBox" placeholder=" Add Language">
+                        <a href="jobdetails.html">View Details</a>
                     </div>
                 </div>
-                <div class="save-button">
-                    <input type="submit" value="Save">
+            </div>
+
+            <div class="card">
+                <div class="heading">
+                    <div class="title">Job 5</div>
+                    <div class="jobs">
+                        <div class="description">Use the set of the most well researched diagnostic surveys stemming from I/O
+                            psychology powerhouses such as Harvard University and University of Michigan. Choose between: Culture,
+                            Team Effectiveness, Employee Wellbeing, e-NPS and Talent Management surveys.
+                        </div>
+                        <a href="jobdetails.html">View Details</a>
+                    </div>
                 </div>
             </div>
-    
+            
         </div>
     </div>
     

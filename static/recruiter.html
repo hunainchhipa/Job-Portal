@@ -44,31 +44,70 @@
         </div>
     </div>
 
-    <div class="side-menu recruiter">
-        <div class="profile-section">
-            <div class="profile-image">
-                <img src="images/user-profile pic.png" alt="Profile Pic" id="img-profile-picture" class="img-profile-picture">
-                <input type="file" id="file" class="file">
-                <label for="file" class="uploadBtn" id="uploadBtn">
-                    <i class="fa fa-upload"></i>
-                </label>
+    <div class="wrapper">
+        <div class="side-menu recruiter">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="images/user-profile pic.png" alt="Profile Pic" id="img-profile-picture"
+                        class="img-profile-picture">
+                    <input type="file" id="file" class="file">
+                    <label for="file" class="uploadBtn" id="uploadBtn">
+                        <i class="fa fa-upload"></i>
+                    </label>
+                </div>
+                <div class="user-info">
+                    <p class="name"></p>
+                    <span class="type"></span>
+                </div>
             </div>
-            <div class="user-info">
-                <p class="name"></p>
-                <span class="type"></span>
+            <div class="menu-section">
+                <div class="menu-item active">
+                    <i class="fa-solid fa-list-check"></i>
+                    <p class="m-0">Job Management</p><span></span>
+                </div>
             </div>
         </div>
-        <div class="menu-section">
-            <div class="menu-item active">
-                <i class="fa-solid fa-list-check"></i>
-                <p class="m-0">Job Management</p><span></span>
+
+        <div class="content">
+            <div class="card">
+                <div class="heading">
+                    <h3 class="post-job" style="font-weight: lighter;">Job Management</h3>
+                </div>
+                <a href="postjob.html" style="text-decoration: none;">Post a Job</a>
             </div>
-            <div class="menu-item ">
-                <i class="fa-solid fa-list-check"></i>
-                <p class="m-0">Candidate Management</p><span></span>
+
+            <div class="card">
+                <div class="heading">
+                    <h3 class="post-job">Active Jobs</h3>
+                    <hr style="margin-top: 2%;"> <br>
+                </div>
             </div>
         </div>
     </div>
+
+    <!--Footer-->
+    <section class="footer">
+        <ul class="list">
+            <li>
+                <a href="#home">Home</a>
+            </li>
+            <li>
+                <a href="#services">Services</a>
+            </li>
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#terms">Terms</a>
+            </li>
+            <li>
+                <a href="#privacypolicy">Privacy Policy</a>
+            </li>
+        </ul> <hr style="margin-top: 15px; border-top: #000000;">
+        <p class="copyright">
+            © 2021-2022 | Job Portal
+        </p>
+    </section>
 
     <script>
         //Declaring HTML elements

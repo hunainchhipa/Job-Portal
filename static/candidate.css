@@ -121,9 +121,9 @@ body {
   border-left: 5px solid #248291;
 }
 .side-menu .menu-section .menu-item.active i,
-.side-menu .menu-section .menu-item.active p,
+.side-menu .menu-section .menu-item.active a,
 .side-menu .menu-section .menu-item:hover i,
-.side-menu .menu-section .menu-item:hover p {
+.side-menu .menu-section .menu-item:hover a {
   color: #248291;
 }
 .side-menu .menu-section .menu-item i {
@@ -199,25 +199,6 @@ body {
   font-size: 15px;
 }
 
-.content .card input[type="reset"] {
-  border: 1px #ff8f00;
-  width: 120px;
-  background: #ff8f00;
-  color: #fff;
-  font-size: 14px;
-  line-height: 10px;
-  padding: 10px 0;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-  position: relative;
-  overflow: hidden;
-  margin-right: 7px;
-}
-.content .card input[type="reset"]:hover {
-  background-color: #a0610f;
-}
 .content .card input[type="submit"]{
   border: 1px #ff8f00;
   width: 120px;
@@ -236,6 +217,7 @@ body {
 .content .card .save-button {
   text-align: right;
   margin-right: 15px;
+  margin-top: 2%;
 }
 .content .card input[type="submit"]:hover {
   background-color: #248291;

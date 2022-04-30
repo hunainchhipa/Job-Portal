@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="candidate.css">
+    <link rel="stylesheet" href="postjob.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
     <script src="./common.js"></script>
@@ -21,12 +21,6 @@
 
                 if(elUserSideName) {
                     elUserSideName.innerHTML = res.data.firstname + " " + res.data.lastname
-                }
-
-                const elUserName = document.querySelector(".content .card .heading .user-name")
-
-                if(elUserName) {
-                    elUserName.innerHTML = res.data.firstname + " " + res.data.lastname
                 }
 
                 const elUserType = document.querySelector(".profile-section .user-info .type")
@@ -69,105 +63,25 @@
                 </div>
             </div>
             <div class="menu-section">
-                <div class="menu-item active">
-                    <i class="fa fa-user"></i>
-                    <p class="m-0" style="color: #248291;">My Profile</p><span></span>
-                </div>
-                <div class="menu-item ">
-                    <i class="fa fa-search"></i>
-                    <a href="jobsearch.html" style="text-decoration: none; color: black;">Job Search</a><span></span>
-                    
+                <div class="menu-item">
+                    <i class="fa-solid fa-list-check"></i>
+                    <a href="recruiter.html" style="text-decoration: none; color: black;">Job Management</a><span></span>
                 </div>
             </div>
         </div>
         <div class="content">
             <div class="card">
                 <div class="heading">
-                    <h3 class="user-name"></h3>
+                    <h3>Post a Job</h3>
                     <hr style="margin-top: 2%;"> <br>
                 </div>
                 <div class="fill-information">
-                    <p>Profile Infromation</p><br>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Career Stage
-                        </div>
-                        <select class="option-content">
-                            <option value="" disabled selected>Select Career Stage</option>
-                            <option value="">Student</option>
-                            <option value="">Job Starter</option>
-                            <option value="">Professional Experienced</option>
-                        </select>
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Highest Graduation
-                        </div>
-                        <select class="option-content">
-                            <option value="" disabled selected>Select Highest Graduation</option>
-                            <option value="">Post Graduate</option>
-                            <option value="">Under Graduate</option>
-                            <option value="">Secondary Education</option>
-                            <option value="">Higher Secondary Education</option>
-                            <option value="">Masters</option>
-                            <option value="">Bachelors</option>
-                            <option value="">PhD</option>
-                        </select>
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Type of Hiring
-                        </div>
-                        <select class="option-content">
-                            <option value="" disabled selected>Select the Type of Hiring</option>
-                            <option value="">Full Time</option>
-                            <option value="">Part Time</option>
-                            <option value="">Internship</option>
-                            <option value="">Freelance</option>
-                        </select>
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Address
-                        </div>
-                        <input type="text" class="textBox" placeholder=" Address">
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Phone
-                        </div>
-                        <input type="number" class="textBox" placeholder=" Phone">
-                    </div>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="heading">
-                    <h3>Skills</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            <i>Here, you list your professional skills</i>
-                        </div>
-                        <input type="text" class="textBox" placeholder=" Enter ability">
-                    </div>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="heading">
-                    <h3>Experience</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Add your work Experience</p> <br>
+                    <p>Add Jobs</p> <br>
                     <div class="sub-header">
                         <div class="sub-header-content">
                             Title
                         </div>
-                        <input type="text" class="textBox" placeholder=" Enter your position">
+                        <input type="text" class="textBox" placeholder=" Enter Job Title">
                     </div>
                     <div class="sub-header">
                         <div class="sub-header-content">
@@ -175,50 +89,17 @@
                         </div>
                         <input type="text" class="textBox" placeholder=" Enter Description">
                     </div>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="heading">
-                    <h3>Education</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Add your Education</p> <br>
                     <div class="sub-header">
                         <div class="sub-header-content">
-                            University
+                            Job Details
                         </div>
-                        <input type="text" class="textBox" placeholder=" Enter you University">
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Description
-                        </div>
-                        <input type="text" class="textBox" placeholder=" Enter Description">
-                    </div>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="heading">
-                    <h3>Languages</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Add your Language</p><br>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Add Language
-                        </div>
-                        <input type="text" class="textBox" placeholder=" Add Language">
+                        <textarea class="textBox" placeholder=" Job Details" style="min-height: 200px;"></textarea>
                     </div>
                 </div>
                 <div class="save-button">
-                    <input type="submit" value="Save">
+                    <input type="submit" value="Post Job">
                 </div>
             </div>
-    
         </div>
     </div>
     
