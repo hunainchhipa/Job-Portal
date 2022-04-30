@@ -115,16 +115,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #333;
-  }
-  .side-menu .menu-section .menu-item.active {
-    border-left: 5px solid #248291;
-  }
-  .side-menu .menu-section .menu-item.active i,
-  .side-menu .menu-section .menu-item.active p,
-  .side-menu .menu-section .menu-item:hover i,
-  .side-menu .menu-section .menu-item:hover p {
-    color: #248291;
   }
   .side-menu .menu-section .menu-item i {
     font-size: 22px;
@@ -163,14 +153,10 @@
     border-radius: 6px;
     margin-bottom: 20px;
     padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
-  .content .card .heading {
-    font-size: 20px;
+  .content .card .heading h3 {
     margin: 10px;
-    font-weight: 400;
+    font-size: 25px;
   }
   
   .footer {

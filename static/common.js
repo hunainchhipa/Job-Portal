@@ -6,6 +6,14 @@ const getUserProfile = async () => {
     return profile.data
 }
 
+const getJobs = async () => {
+    const jobs = await axios({
+        url: '/api/jobs',
+        method: "GET"
+    })
+    return jobs.data
+}
+
 const setAuthHeader = (auth) => {
    axios.defaults.headers.common["Authorization"] = auth
 }

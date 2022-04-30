@@ -11,7 +11,7 @@
     <script src="./common.js"></script>
 
     <script>
-       const credentials = window.localStorage.getItem("token");
+        const credentials = window.localStorage.getItem("token");
 
         window.addEventListener("load", (e) => {
             setAuthHeader("Bearer " + credentials)
@@ -19,13 +19,13 @@
 
                 const elUserSideName = document.querySelector(".profile-section .user-info .name")
 
-                if(elUserSideName) {
+                if (elUserSideName) {
                     elUserSideName.innerHTML = res.data.firstname + " " + res.data.lastname
                 }
 
                 const elUserType = document.querySelector(".profile-section .user-info .type")
 
-                if(elUserType) {
+                if (elUserType) {
                     elUserType.innerHTML = res.data.usertype
                 }
             })
@@ -65,44 +65,67 @@
             <div class="menu-section">
                 <div class="menu-item">
                     <i class="fa-solid fa-list-check"></i>
-                    <a href="recruiter.html" style="text-decoration: none; color: black;">Job Management</a><span></span>
+                    <a href="recruiter.html" style="text-decoration: none; color: black;">Job
+                        Management</a><span></span>
                 </div>
             </div>
         </div>
         <div class="content">
-            <div class="card">
-                <div class="heading">
-                    <h3>Post a Job</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Add Jobs</p> <br>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Title
-                        </div>
-                        <input type="text" class="textBox" placeholder=" Enter Job Title">
+            <form class="form-postjobs" method="post">
+                <div class="card">
+                    <div class="heading">
+                        <h3>Post a Job</h3>
+                        <hr style="margin-top: 2%;"> <br>
                     </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Description
+                    <div class="fill-information">
+                        <p>Add Jobs</p> <br>
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Title
+                            </div>
+                            <input type="text" name="title" class="textBox" placeholder=" Enter Job Title">
                         </div>
-                        <input type="text" class="textBox" placeholder=" Enter Description">
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Location
+                            </div>
+                            <textarea class="textBox" name="jobDetails" placeholder=" Enter Job Location"
+                                style="min-height: 70px;"></textarea>
+                        </div>
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Salary Range
+                            </div>
+                            <input type="text" name="salary" class="textBox" placeholder=" Enter Salary Range">
+                        </div>
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Company name
+                            </div>
+                            <input type="text" name="companyname" class="textBox" placeholder=" Enter Company Name">
+                        </div>
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Company URL
+                            </div>
+                            <input type="text" name="companyURL" class="textBox" placeholder=" Enter Company URL">
+                        </div>
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Job Details
+                            </div>
+                            <textarea class="textBox" name="jobDetails" placeholder=" Enter Job Details"
+                                style="min-height: 200px;"></textarea>
+                        </div>
                     </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Job Details
-                        </div>
-                        <textarea class="textBox" placeholder=" Job Details" style="min-height: 200px;"></textarea>
+                    <div class="save-button">
+                        <input type="submit" value="Post Job">
                     </div>
                 </div>
-                <div class="save-button">
-                    <input type="submit" value="Post Job">
-                </div>
-            </div>
+            </form>
         </div>
     </div>
-    
+
     <!--Footer-->
     <section class="footer">
         <ul class="list">
@@ -121,7 +144,8 @@
             <li>
                 <a href="#privacypolicy">Privacy Policy</a>
             </li>
-        </ul> <hr style="margin-top: 15px; border-top: #000000;">
+        </ul>
+        <hr style="margin-top: 15px; border-top: #000000;">
         <p class="copyright">
             © 2021-2022 | Job Portal
         </p>
@@ -185,7 +209,28 @@
             }
         }
 
-        
+
+        // Post Job
+        const form = document.querySelector(".form-postjobs");
+        form.addEventListener("submit", postJob);
+
+        async function postJob(event) {
+            event.preventDefault();
+
+            let payload = {}
+            for (let i = 0; i < form.elements.length; i++) {
+                let el = form.elements[i];
+                payload[el.name] = el.value
+                console.log(el.name, el.value);
+            }
+
+            console.log(payload, 'payload')
+            const result = await axios.post('/api/postjob', payload).then((res) => {
+                return res.json()
+            })
+        }
+
+
     </script>
 </body>
 
