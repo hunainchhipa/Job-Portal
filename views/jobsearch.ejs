@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="jobsearch.css">
+    <link rel="stylesheet" href="/jobsearch.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
-    <script src="./common.js"></script>
+    <script src="/common.js"></script>
 
     <script>
        const credentials = window.localStorage.getItem("token");
@@ -35,16 +35,7 @@
 </head>
 
 <body>
-    <div class="nav">
-        <h1>Job Portal</h1>
-        <div class="setting-icon-dropdown">
-            <i onclick="myFunction()" class="fa fa-gear icon"></i>
-            <div class="dropdown-content" id="myDropdown">
-                <a href="#settings">Settings</a>
-                <a href="#logout">Logout</a>
-            </div>
-        </div>
-    </div>
+    <%- include('header'); -%>
 
     <div class="wrapper">
         <div class="side-menu candidate">
@@ -65,7 +56,7 @@
             <div class="menu-section">
                 <div class="menu-item">
                     <i class="fa fa-user"></i>
-                    <a href="candidate.html" style="text-decoration: none; color: black;">My Profile</a><span></span>
+                    <a href="candidate" style="text-decoration: none; color: black;">My Profile</a><span></span>
                 </div>
                 <div class="menu-item active">
                     <i class="fa fa-search"></i>
@@ -88,7 +79,7 @@
                             psychology powerhouses such as Harvard University and University of Michigan. Choose between: Culture,
                             Team Effectiveness, Employee Wellbeing, e-NPS and Talent Management surveys.
                         </div>
-                        <a href="jobdetails.html">View Details</a>
+                        <a href="jobdetails">View Details</a>
                     </div>
                 </div>
             </div>
@@ -101,7 +92,7 @@
                             psychology powerhouses such as Harvard University and University of Michigan. Choose between: Culture,
                             Team Effectiveness, Employee Wellbeing, e-NPS and Talent Management surveys.
                         </div>
-                        <a href="jobdetails.html">View Details</a>
+                        <a href="jobdetails">View Details</a>
                     </div>
                 </div>
             </div>
@@ -114,7 +105,7 @@
                             psychology powerhouses such as Harvard University and University of Michigan. Choose between: Culture,
                             Team Effectiveness, Employee Wellbeing, e-NPS and Talent Management surveys.
                         </div>
-                        <a href="jobdetails.html">View Details</a>
+                        <a href="jobdetails">View Details</a>
                     </div>
                 </div>
             </div>
@@ -127,7 +118,7 @@
                             psychology powerhouses such as Harvard University and University of Michigan. Choose between: Culture,
                             Team Effectiveness, Employee Wellbeing, e-NPS and Talent Management surveys.
                         </div>
-                        <a href="jobdetails.html">View Details</a>
+                        <a href="jobdetails">View Details</a>
                     </div>
                 </div>
             </div>
@@ -140,7 +131,7 @@
                             psychology powerhouses such as Harvard University and University of Michigan. Choose between: Culture,
                             Team Effectiveness, Employee Wellbeing, e-NPS and Talent Management surveys.
                         </div>
-                        <a href="jobdetails.html">View Details</a>
+                        <a href="jobdetails">View Details</a>
                     </div>
                 </div>
             </div>
@@ -206,15 +197,6 @@
                 reader.readAsDataURL(choosedFile);
             }
         })
-
-
-
-        //setting Icon Dropdown
-        /* When the user clicks on the button, 
-        toggle between hiding and showing the dropdown content */
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
 
         // Close the dropdown if the user clicks outside of it
         window.onclick = function (event) {

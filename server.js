@@ -15,9 +15,42 @@ mongoose.connect("mongodb://localhost:27017/jobportal", {
 });
 
 const app = express();
-app.use("/", express.static(path.join(__dirname, "static")));
+app.use(express.static(__dirname + '/static'));
+
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
+
+app.get('/', (req, res)=>{
+    res.render('login');
+});
+
+app.get('/login', (req, res)=>{
+    res.render('login');
+});
+
+app.get('/register', (req, res)=>{
+    res.render('register');
+});
+
+app.get('/forgotpass', (req, res)=>{
+    res.render('forgotpass');
+});
+
+app.get('/candidate', (req, res)=>{
+    res.render('candidate');
+});
+
+app.get('/recruiter', (req, res)=>{
+    res.render('recruiter');
+});
+
+app.get('/postjob', (req, res)=>{
+    res.render('postjob');
+});
+
+app.get('/jobs', (req, res)=>{
+    res.render('jobsearch');
+});
 
 // Login API
 app.post("/api/login", async (req, res) => {

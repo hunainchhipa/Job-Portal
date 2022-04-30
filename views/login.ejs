@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Job Portal</title>
-        <link href="login.css" rel="stylesheet" type="text/css" />
+        <link href="/login.css" rel="stylesheet" />
         
     </head>
 
@@ -18,10 +18,10 @@
                 <input type="submit" value="Log in">
                 <br><br>
                  <div id="container">
-                    <a href="forgotpass.html" style=" margin-right: 0px; font-size: 13px; 
+                    <a href="forgotpass" style=" margin-right: 0px; font-size: 13px; 
                     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Forgot Password</a>
                  </div><br><br>
-                Don't have an account? <a href="/register.html">&nbsp;Register</a>
+                Don't have an account? <a href="/register">&nbsp;Register</a>
             </form>
         </div>
         <script>
@@ -50,9 +50,9 @@
 					localStorage.setItem('token', result.data.token)
 
 					if(result.data.user.usertype === "Candidate") {
-						window.location.href = "/candidate.html"
+						window.location.href = "/candidate"
 					} else if (result.data.user.usertype === "Recruiter") {
-						window.location.href = "/recruiter.html"
+						window.location.href = "/recruiter"
 					}
 				} else {
 					alert(result.error)

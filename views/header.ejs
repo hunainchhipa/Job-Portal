@@ -1,0 +1,21 @@
+<div class="nav">
+    <h1>Job Portal</h1>
+    <div class="setting-icon-dropdown">
+        <i onclick="toggleDropdown()" class="fa fa-gear icon"></i>
+        <div class="dropdown-content" id="myDropdown">
+            <a id="logout" onclick="logout()" href="#logout">Logout</a>
+        </div>
+    </div>
+</div>
+
+<script>
+
+function toggleDropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function logout() {
+    localStorage.removeItem("token")
+    window.location.href = "/"
+}
+</script>
