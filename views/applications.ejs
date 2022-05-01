@@ -9,6 +9,56 @@
     <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
     <script src="/common.js"></script>
 
+    <script>
+         window.addEventListener("load", (e) => {
+            const getApplications = async () => {
+                const id = window.location.pathname.split("/")
+
+                const candidates = await axios({
+                    url: `/api/job-applications/${id[id.length - 1]}`,
+                    method: "GET"
+                })
+                return candidates.data
+            }
+
+            getApplications().then((res) => {
+                const htmlCards = []
+                res.forEach((candidate) => {
+                    htmlCards.push(`
+                        <div class="card">
+                            <div class="heading">
+                                <div class="title">${candidate.firstname} ${candidate.lastname}</div>
+                                <div class="jobs">
+                                    <div class="description">
+                                        ${candidate.email}
+                                    </div>
+                                    <div class="description">
+                                        ${candidate.address}
+                                    </div>
+                                    <div class="description">
+                                        ${candidate.phone}
+                                    </div>
+                                    <div class="description">
+                                        ${candidate.skills}
+                                    </div>
+                                    <div class="description">
+                                        ${candidate.education}
+                                    </div>
+                                    <div class="description">
+                                        ${candidate.experience}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `)
+                })
+
+                document.querySelector(".content .cards").innerHTML = htmlCards.join("")
+            })
+
+        })
+    </script>
+
     <title>Job Portal</title>
 </head>
 <body>

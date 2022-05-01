@@ -45,7 +45,7 @@ app.get('/recruiter', (req, res)=>{
     res.render('recruiter');
 });
 
-app.get('/applications', (req, res)=>{
+app.get('/applications/:id', (req, res)=>{
   res.render('applications');
 });
 
@@ -217,13 +217,11 @@ app.get("/api/recruiter-jobs", verifyToken, async (req, res) => {
 
 // Get jobs applied by logged in candidate
 app.get("/api/candidate-jobs", verifyToken, async (req, res) => {
-  const query = {
-    candidateId: req.tokenData.id
-  }
-
   const getApplicationsByUser = async () => {
       const jobs = []
-      const applications = await Application.find(query)
+      const applications = await Application.find({
+        candidateId: req.tokenData.id
+      })
 
       for(let application of applications) {
         let job = await Job.findById(application.jobId)
@@ -243,6 +241,34 @@ app.get("/api/candidate-jobs", verifyToken, async (req, res) => {
   }
 
   return res.status(200).send(jobs)
+
+});
+
+// Get jobs applied by logged in candidate
+app.get("/api/job-applications/:id", verifyToken, async (req, res) => {
+  const getCandidateApplications = async () => {
+      const users = []
+      const applications = await Application.find({ jobId: req.params.id })
+
+      console.log(applications, 'appppps')
+      for(let application of applications) {
+        let user = await User.findById(application.candidateId)
+        users.push(user)
+      }
+      return users
+  }
+
+
+  const users = await getCandidateApplications()
+
+
+  if(users.length === 0) {
+    return res.status(500).send({
+      message: "Error while getting job applications"
+    })
+  }
+
+  return res.status(200).send(users)
 
 });
 
