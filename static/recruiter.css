@@ -173,6 +173,62 @@ body {
   font-weight: 400;
 }
 
+.content .card .heading h3 {
+  margin: 10px;
+  font-weight: 200;
+  font-size: 25px;
+}
+.content .card .heading .user-name {
+  font-size: 20px;
+  font-weight: 400;
+}
+.content .card .fill-information p {
+  margin: 10px;
+  font-size: 20px;
+}
+.content .card .fill-information .sub-header {
+  display: flex;
+  margin: 30px 15px;
+}
+.content .card .fill-information .sub-header .option-content {
+  width: 70%;
+  height: 30px;
+  border-color: gainsboro;
+  border-width: 3px;
+}
+.content .card .fill-information .sub-header .sub-header-content{
+  width: 30%;
+}
+.content .card .fill-information .sub-header .textBox {
+  width: 70%;
+  height: 30px;
+  border-color: gainsboro;
+  border-width: 2px;
+}
+.content .card .fill-information .sub-header .sub-header-content i {
+  font-size: 15px;
+}
+
+.content .card .heading .title {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 300;
+}
+.content .card .heading .description {
+  font-size: 13px;
+  font-weight: 300;
+  width: 80%;
+}
+.content .card .heading .jobs a {
+    width: 20%;
+    text-align: right;
+    text-decoration: none;
+}
+.content .card .heading .jobs {
+  display: flex;
+  margin: 30px 15px;
+}
+
 .footer {
   padding: 40px 0;
   box-shadow: 0 0 22px 6px rgb(0 0 0 / 5%);
