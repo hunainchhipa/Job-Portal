@@ -143,22 +143,23 @@ app.put("/api/save-profile", verifyToken, (req, res) => {
   const profile = {
     ...req.body,
   };
-  return Folder.updateOne(
+  return User.updateOne(
     { _id: req.tokenData.id },
     { $set: profile },
     (err, data) => {
+      console.log(data, 'data')
       if (err) {
         console.log("Update error", req.params.id, err);
         return res.status(500).send({
           message: "Error in updating profile",
         });
       }
-      if (data.n === 1) {
+      if (data.matchedCount === 1) {
         return res.status(200).send({
           message: "User details updated",
         });
       }
-      return res.status(404).send({
+      return res.status(500).send({
         message: "No User found",
       });
     }

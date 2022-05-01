@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/candidate.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
     <script src="/common.js"></script>
 
@@ -39,126 +40,134 @@
                 </div>
                 <div class="menu-item ">
                     <i class="fa fa-search"></i>
-                    <a href="/jobs" style="text-decoration: none; color: black;">Jobs</a><span></span>
-                    
+                    <a href="/jobs" style="text-decoration: none; color: black;">Search Jobs</a><span></span>
+                </div>
+                <div class="menu-item ">
+                    <i class="fa fa-check"></i>
+                    <a href="/applied-jobs" style="text-decoration: none; color: black;">My Applied Jobs</a><span></span>
                 </div>
             </div>
         </div>
         <div class="content">
-            <div class="card">
-                <div class="heading">
-                    <h3 class="user-name"></h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Profile Infromation</p><br>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Career Stage
-                        </div>
-                        <select class="option-content">
-                            <option value="" disabled selected>Select Career Stage</option>
-                            <option value="">Student</option>
-                            <option value="">Job Starter</option>
-                            <option value="">Professional Experienced</option>
-                        </select>
+            <form class="form-candidate-details" method="post">
+                <div class="card">
+                    <div class="heading">
+                        <h3 class="user-name"></h3>
+                        <hr style="margin-top: 2%;"> <br>
                     </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Highest Graduation
+                    <div class="fill-information">
+                        <p>Profile Infromation</p><br>
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Career Stage
+                            </div>
+                            <select name="careerstage" class="option-content">
+                                <option value="Select Career Stage" disabled selected>Select Career Stage</option>
+                                <option value="Student">Student</option>
+                                <option value="Job Starte">Job Starter</option>
+                                <option value="Professional Experienced">Professional Experienced</option>
+                            </select>
                         </div>
-                        <select class="option-content">
-                            <option value="" disabled selected>Select Highest Graduation</option>
-                            <option value="">Post Graduate</option>
-                            <option value="">Under Graduate</option>
-                            <option value="">Secondary Education</option>
-                            <option value="">Higher Secondary Education</option>
-                            <option value="">Masters</option>
-                            <option value="">Bachelors</option>
-                            <option value="">PhD</option>
-                        </select>
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Type of Hiring
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Highest Graduation
+                            </div>
+                            <select name="graduation" class="option-content">
+                                <option value="Select Highest Graduation" disabled selected>Select Highest Graduation</option>
+                                <option value="Post Graduate">Post Graduate</option>
+                                <option value="Under Graduate">Under Graduate</option>
+                                <option value="Secondary Education">Secondary Education</option>
+                                <option value="Higher Secondary Education">Higher Secondary Education</option>
+                                <option value="Masters">Masters</option>
+                                <option value="Bachelors">Bachelors</option>
+                                <option value="PhD">PhD</option>
+                            </select>
                         </div>
-                        <select class="option-content">
-                            <option value="" disabled selected>Select the Type of Hiring</option>
-                            <option value="">Full Time</option>
-                            <option value="">Part Time</option>
-                            <option value="">Internship</option>
-                            <option value="">Freelance</option>
-                        </select>
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Address
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Type of Hiring
+                            </div>
+                            <select name="typeofhiring" class="option-content">
+                                <option value="Select the Type of Hiring" disabled selected>Select the Type of Hiring</option>
+                                <option value="Full Time">Full Time</option>
+                                <option value="Part Time">Part Time</option>
+                                <option value="Internship">Internship</option>
+                                <option value="Freelance">Freelance</option>
+                            </select>
                         </div>
-                        <textarea style="min-height: 80px;" type="text" class="textBox" placeholder=" Address"></textarea>
-                    </div>
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Phone
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Address
+                            </div>
+                            <textarea name="address" style="min-height: 80px;" type="text" class="textBox"
+                                placeholder=" Address"></textarea>
                         </div>
-                        <input type="number" class="textBox" placeholder=" Phone">
-                    </div>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="heading">
-                    <h3>Skills</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            <i>Here, you list your professional skills</i>
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Phone
+                            </div>
+                            <input name="phone" type="number" class="textBox" placeholder=" Phone">
                         </div>
-                        <input type="text" class="textBox" placeholder=" Enter ability">
                     </div>
                 </div>
-            </div>
-    
-            <div class="card">
-                <div class="heading">
-                    <h3>Experience</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Add your work Experience</p> <br>
-                    
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Description
+            
+                <div class="card">
+                    <div class="heading">
+                        <h3>Skills</h3>
+                        <hr style="margin-top: 2%;"> <br>
+                    </div>
+                    <div class="fill-information">
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                <i>Here, you list your professional skills</i>
+                            </div>
+                            <input name="skills" type="text" class="textBox" placeholder=" Enter ability">
                         </div>
-                        <textarea style="min-height: 100px;" class="textBox" placeholder=" Enter Description"></textarea>
                     </div>
                 </div>
-            </div>
-    
-            <div class="card">
-                <div class="heading">
-                    <h3>Education</h3>
-                    <hr style="margin-top: 2%;"> <br>
-                </div>
-                <div class="fill-information">
-                    <p>Add your Education</p> <br>
-                   
-                    <div class="sub-header">
-                        <div class="sub-header-content">
-                            Description
+            
+                <div class="card">
+                    <div class="heading">
+                        <h3>Experience</h3>
+                        <hr style="margin-top: 2%;"> <br>
+                    </div>
+                    <div class="fill-information">
+                        <p>Add your work Experience</p> <br>
+            
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Description
+                            </div>
+                            <textarea name="experience" style="min-height: 100px;" class="textBox"
+                                placeholder=" Enter Description"></textarea>
                         </div>
-                        <textarea style="min-height: 100px;" class="textBox" placeholder=" Enter Description"></textarea>
                     </div>
                 </div>
-            </div>
-
-            <div class="card">
-                <div class="save-button">
-                    <input type="submit" value="Save All Details">
+            
+                <div class="card">
+                    <div class="heading">
+                        <h3>Education</h3>
+                        <hr style="margin-top: 2%;"> <br>
+                    </div>
+                    <div class="fill-information">
+                        <p>Add your Education</p> <br>
+            
+                        <div class="sub-header">
+                            <div class="sub-header-content">
+                                Description
+                            </div>
+                            <textarea name="education" style="min-height: 100px;" class="textBox"
+                                placeholder=" Enter Description"></textarea>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            
+                <div class="card">
+                    <div class="save-button">
+                        <input name="saveAll" type="submit" value="Save All Details">
+                    </div>
+                </div>
+            </form>
     
     
             
@@ -201,6 +210,25 @@
             }
         })
 
+        //save Candidate data
+        const form = document.querySelector(".form-candidate-details");
+        form.addEventListener("submit", CanadidateDetails);
+
+        function CanadidateDetails(event) {
+            event.preventDefault();
+
+            let payload = {}
+            for (let i = 0; i < form.elements.length; i++) {
+                let el = form.elements[i];
+                payload[el.name] = el.value
+            }
+
+            axios.put('/api/save-profile', payload).then((res) => {
+                swal("Profile Updated", "You have successfully updated your profile", "success")
+            }).catch((e) => {
+                swal("Error", "An unexpected error occured", "error")
+            })
+        }
 
         
     </script>
