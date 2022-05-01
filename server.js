@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+var ObjectId = require( 'mongodb' ).ObjectId;
 const User = require("./model/user");
 const Job = require("./model/job");
 const Application = require("./model/application");
@@ -132,6 +133,32 @@ app.post("/api/register", async (req, res) => {
   }
 
   res.json({ status: "ok" });
+});
+
+app.put("/api/save-profile", verifyToken, (req, res) => {
+  const profile = {
+    ...req.body,
+  };
+  return Folder.updateOne(
+    { _id: req.tokenData.id },
+    { $set: profile },
+    (err, data) => {
+      if (err) {
+        console.log("Update error", req.params.id, err);
+        return res.status(500).send({
+          message: "Error in updating profile",
+        });
+      }
+      if (data.n === 1) {
+        return res.status(200).send({
+          message: "User details updated",
+        });
+      }
+      return res.status(404).send({
+        message: "No User found",
+      });
+    }
+  );
 });
 
 // Get logged in user profile
