@@ -215,7 +215,6 @@ app.get("/api/recruiter-jobs", verifyToken, async (req, res) => {
 });
 
 // Get jobs applied by logged in candidate
-// WIP
 app.get("/api/candidate-jobs", verifyToken, async (req, res) => {
   const query = {
     candidateId: req.tokenData.id
