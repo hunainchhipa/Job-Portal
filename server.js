@@ -233,19 +233,33 @@ app.get("/api/recruiter-jobs", verifyToken, async (req, res) => {
 
 // Get jobs applied by logged in candidate
 // WIP
-app.get("/api/candidate-jobs", verifyToken, (req, res) => {
+app.get("/api/candidate-jobs", verifyToken, async (req, res) => {
   const query = {
     candidateId: req.tokenData.id
   }
 
-  Application.find(query, (err, applications) => {
-    applications.forEach((application) => {
-        console.log(application)
+  const getApplicationsByUser = async () => {
+      const jobs = []
+      const applications = await Application.find(query)
+
+      for(let application of applications) {
+        let job = await Job.findById(application.jobId)
+        jobs.push(job)
+      }
+      return jobs
+  }
+
+
+  const jobs = await getApplicationsByUser()
+
+
+  if(jobs.length === 0) {
+    return res.status(500).send({
+      message: "Error while getting job applications"
     })
-    return res.status(200).send(applications)
-  })
+  }
 
-
+  return res.status(200).send(jobs)
 
 });
 
@@ -298,6 +312,6 @@ app.post("/api/apply", verifyToken, async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server up at 3000");
+app.listen(3030, () => {
+  console.log("Server up at 3030");
 });

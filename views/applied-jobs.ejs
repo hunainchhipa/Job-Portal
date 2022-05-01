@@ -24,7 +24,7 @@
 
             getAllJobsForCandidate().then((res) => {
                 const htmlCards = []
-                res.data.forEach((job) => {
+                res.forEach((job) => {
                     htmlCards.push(`
                         <div class="card">
                             <div class="heading">
