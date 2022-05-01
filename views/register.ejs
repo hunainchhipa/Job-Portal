@@ -97,10 +97,8 @@
         for (let i = 0; i < form.elements.length; i++) {
           let el = form.elements[i];
           payload[el.name] = el.value
-          console.log(el.name, el.value);
         }
 
-        console.log(payload, JSON.stringify(payload))
         const result = await fetch('/api/register', {
           method: 'POST',
           headers: {

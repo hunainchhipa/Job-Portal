@@ -147,7 +147,6 @@ app.put("/api/save-profile", verifyToken, (req, res) => {
     { _id: req.tokenData.id },
     { $set: profile },
     (err, data) => {
-      console.log(data, 'data')
       if (err) {
         console.log("Update error", req.params.id, err);
         return res.status(500).send({
@@ -250,7 +249,6 @@ app.get("/api/job-applications/:id", verifyToken, async (req, res) => {
       const users = []
       const applications = await Application.find({ jobId: req.params.id })
 
-      console.log(applications, 'appppps')
       for(let application of applications) {
         let user = await User.findById(application.candidateId)
         users.push(user)

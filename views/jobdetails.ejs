@@ -19,7 +19,6 @@
             axios(`/api/job/${id[id.length - 1]}`).then((res) => {
                 const data = res.data
 
-                console.log(data)
                 document.querySelector(".content .job-title").innerHTML = data.title
                 document.querySelector(".content .job-location").innerHTML = data.location
                 document.querySelector(".content .job-salary").innerHTML = data.salary
