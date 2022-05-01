@@ -45,6 +45,10 @@ app.get('/recruiter', (req, res)=>{
     res.render('recruiter');
 });
 
+app.get('/applications', (req, res)=>{
+  res.render('applications');
+});
+
 app.get('/postjob', (req, res)=>{
     res.render('postjob');
 });
@@ -209,27 +213,6 @@ app.get("/api/recruiter-jobs", verifyToken, async (req, res) => {
       });
     });
 });
-
-
-// Get jobs posted by logged in recruiter
-app.get("/api/recruiter-jobs", verifyToken, async (req, res) => {
-  const query = {
-    recruiterId: req.tokenData.id
-  }
-
-  Job.find(query, (err, jobs) => {
-      if (err) {
-        return res.status(500).send({
-          message: "Error in getting jobs",
-        });
-      }
-  
-      return res.status(200).send({
-        data: jobs,
-      });
-    });
-});
-
 
 // Get jobs applied by logged in candidate
 // WIP
