@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const User = require("./model/user");
@@ -56,6 +55,11 @@ app.get('/jobs', async (req, res)=>{
 
 app.get('/job/:id', async (req, res)=>{
     res.render('jobdetails');
+});
+
+
+app.get('/applied-jobs', async (req, res)=>{
+  res.render('applied-jobs');
 });
 
 // Login API
@@ -201,22 +205,21 @@ app.get("/api/recruiter-jobs", verifyToken, async (req, res) => {
 
 
 // Get jobs applied by logged in candidate
-app.get("/api/candidate-jobs", verifyToken, async (req, res) => {
+// WIP
+app.get("/api/candidate-jobs", verifyToken, (req, res) => {
   const query = {
-    recruiterId: req.tokenData.id
+    candidateId: req.tokenData.id
   }
 
-  Job.find(query, (err, jobs) => {
-      if (err) {
-        return res.status(500).send({
-          message: "Error in getting jobs",
-        });
-      }
-  
-      return res.status(200).send({
-        data: jobs,
-      });
-    });
+  Application.find(query, (err, applications) => {
+    applications.forEach((application) => {
+        console.log(application)
+    })
+    return res.status(200).send(applications)
+  })
+
+
+
 });
 
 // Get job detail by ID
