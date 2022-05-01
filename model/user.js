@@ -27,6 +27,30 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    careerstage: {
+      type: String,
+    },
+    graduation: {
+      type: String,
+    },
+    typeofhiring: {
+      type: String,
+    },
+    address: {
+      type: String,
+    },
+    phone: {
+      type: String,
+    },
+    skills: {
+      type: String,
+    },
+    experience: {
+      type: String,
+    },
+    education: {
+      type: String,
+    },
   },
   { collection: "users" }
 );
