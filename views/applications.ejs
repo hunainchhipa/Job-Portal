@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="/recruiter.css">
+    <link rel="stylesheet" href="/applications.css">
     <script src="https://kit.fontawesome.com/c2af25f0f5.js" crossorigin="anonymous"></script>
     <script src="/common.js"></script>
 
@@ -30,22 +30,22 @@
                                 <div class="title">${candidate.firstname} ${candidate.lastname}</div>
                                 <div class="jobs">
                                     <div class="description">
-                                        ${candidate.email}
+                                        <strong>Email:</strong> ${candidate.email}
                                     </div>
                                     <div class="description">
-                                        ${candidate.address}
+                                        <strong>Address:</strong>${candidate.address}
                                     </div>
                                     <div class="description">
-                                        ${candidate.phone}
+                                        <strong>Mobile:</strong>${candidate.phone}
                                     </div>
                                     <div class="description">
-                                        ${candidate.skills}
+                                        <strong>Skills:</strong>${candidate.skills}
                                     </div>
-                                    <div class="description">
-                                        ${candidate.education}
+                                    <div class="description education">
+                                        <strong>Education:</strong>${candidate.education}
                                     </div>
-                                    <div class="description">
-                                        ${candidate.experience}
+                                    <div class="description experience">
+                                        <strong>Experience:</strong>${candidate.experience}
                                     </div>
                                 </div>
                             </div>
@@ -81,9 +81,13 @@
                 </div>
             </div>
             <div class="menu-section">
-                <div class="menu-item active">
+                <div class="menu-item">
+                    <i class="fa fa-check"></i>
+                    <a href="/recruiter" style="text-decoration: none; color: black;">My Posted Jobs</a><span></span>
+                </div>
+                <div class="menu-item ">
                     <i class="fa-solid fa-list-check"></i>
-                    <p class="m-0">Job Management</p><span></span>
+                    <a href="/postjob" style="text-decoration: none; color: black">Post a Job</a><span></span>
                 </div>
             </div>
         </div>
